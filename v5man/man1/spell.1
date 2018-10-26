@@ -1,0 +1,39 @@
+.th SPELL I 2/26/74
+.sh NAME
+spell \*- find spelling errors
+.sh SYNOPSIS
+.bd spell
+file ...
+.sh DESCRIPTION
+.it Spell
+attacks the same problem as
+.it "typo (I),"
+but from the opposite direction.
+It extracts words from the input files and looks them up in
+.it "Webster's Seventh Collegiate Dictionary;"
+any words which appear neither in the dictionary
+nor in a list of about 2000 words
+frequently occuring in Bell Laboratories documents
+are listed on the output file
+.it sp.out.
+Words which are reasonable transformations of dictionary entries
+(e.g. a dictionary entry plus
+.it s
+)
+are so marked;
+words which could not be found even when transformed
+are marked with asterisks.
+.s3
+The process takes on the order of 5 to 10 minutes.
+There is a limit of nine input files.
+.sh FILES
+/usr/lib/w2006, /usr/dict/words, sp.out; spjnkq[123] are temporaries.
+.sh "SEE ALSO"
+typo (I)
+.sh BUGS
+.s3
+There should be no limit on the number of input files.
+.s3
+More suffixes, and perhaps some prefixes, should be added.
+.s3
+It should be usable as a filter.

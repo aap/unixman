@@ -1,0 +1,14 @@
+#!/bin/rc
+
+# font names have to be uppercase
+sed 's/\\fi/\\fI/g
+s/\\fb/\\fB/g' |
+
+# something in ecvt
+sed 's/\\\(\*_/\\*_/g' |
+
+# greek characters are wrong
+sed 's/theta	\\\(\*t/theta	\\\(\*h/
+s/THETA	\\\(\*T/THETA	\\\(\*H/
+s/omega	\\\(\*o/omega	\\\(\*w/
+'

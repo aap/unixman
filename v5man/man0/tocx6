@@ -1,0 +1,30 @@
+apl(VI) APL interpreter
+azel(VI) obtain satellite predictions
+bas(VI) basic
+bj(VI) the game of black jack
+cal(VI) print calendar
+catsim(VI) phototypesetter simulator
+chess(VI) the game of chess
+col(VI) filter reverse line feeds
+cubic(VI) three dimensional tic-tac-toe
+factor(VI) discover prime factors of a number
+graf(VI) draw graph on GSI terminal
+gsi(VI) interpret extended character set on GSI terminal
+hyphen(VI) find hyphenated words
+ibm(VI) submit off-line job to HO IBM 370
+m6(VI) general purpose macroprocessor
+maze(VI) generate a maze problem
+moo(VI) guessing game
+npr(VI) print file on Spider line-printer
+plog(VI) make a graph on the gsi terminal
+plot(VI) make a graph
+ptx(VI) permuted index
+sfs(VI) structured file scanner
+sky(VI) obtain ephemerides
+sno(VI) Snobol interpreter
+speak(VI) word to voice translator
+spline(VI) interpolate smooth curve
+tmg(VI) compiler-compiler
+ttt(VI) tic-tac-toe
+wump(VI) hunt the wumpus
+yacc(VI) yet another compiler-compiler

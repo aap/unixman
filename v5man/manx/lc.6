@@ -1,0 +1,90 @@
+.th LC VI 5/15/74
+.sh NAME
+lc \*- LIL compiler
+.sh SYNOPSIS
+.bd lc
+[
+.bd \*-c
+] [
+.bd \*-p
+] [
+.bd \*-P
+] file ...
+.sh DESCRIPTION
+.it Lc
+is the UNIX LIL compiler.
+It accepts three types of arguments:
+.s3
+Arguments whose names end with `.l'
+are taken to be LIL source programs;
+they are compiled,
+and each object program is left on the file whose name
+is that of the source with `.o' subsituted for `.l'.
+The `.o' file is normally deleted,
+however, if a single LIL program is compiled and loaded
+all at one go.
+.s3
+The following flags are interpreted by
+.it lc.
+.s3
+.lp +5 5
+\fB\*-c\fR	Suppress the loading
+phase of the compilation,
+and force an object file to be produced
+even if only one program is compiled.
+.s3
+.lp +5 5
+\fB\*-p\fR	if loading takes place,
+replace the standard startup routine by one
+which automatically calls the
+.it monitor
+subroutine (III) at the start and arranges
+to write out a
+.it mon.out
+file at normal termination of execution of the object program.
+An execution profile can then be generated
+by use of
+.it prof
+(I).
+.s3
+.lp +5 5
+\fB\*-P\fR	Run only the string preprocessor
+on the named LIL programs,
+and leave the output on corresponding files
+suffixed `.i'.
+.dt
+.i0
+.s3
+Other arguments are taken to be object programs
+or perhaps libraries of routines.
+These programs, together with the results
+of any compilations specified,
+are loaded (in the order given)
+to produce an executable program with the name
+.bd a.out.
+.sh FILES
+file.l	input file
+.br
+file.o	object file
+.br
+a.out	loaded output
+.br
+/tmp/ctm?	temporary
+.br
+/lib/l[01]	compiler
+.br
+/lib/crt0.o	runtime startoff
+.br
+/lib/mcrt0.o	runtime startoff for monitoring.
+.br
+/lib/libc.a	builtin functions, etc.
+.sh "SEE ALSO"
+``Programming in LIL: a tutorial,'' LIL Reference Manual,
+.br
+monitor (III), prof (I), cdb (I), ld (I).
+.sh DIAGNOSTICS
+The diagnostics produced by LIL itself
+are intended to be self-explanatory.
+.sh BUGS
+Creates temporary symbols of the form `..octal',
+which might conflict with user defined symbols.

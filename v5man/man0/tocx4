@@ -1,0 +1,18 @@
+cat(IV) phototypesetter interface
+dc(IV) DC-11 communications interface
+dh(IV) DH-11 communications multiplexer
+dn(IV) DN-11 ACU interface
+dp(IV) DP-11 201 data-phone interface
+kl(IV) KL-11 or DL-11 asynchronous interface
+lp(IV) line printer
+mem(IV) core memory
+pc(IV) PC-11 paper tape reader/punch
+rf(IV) RF11/RS11 fixed-head disk file
+rk(IV) RK-11/RK03 (or RK05) disk
+rp(IV) RP-11/RP03 moving-head disk
+tc(IV) TC-11/TU56 DECtape
+tiu(IV) Spider interface
+tm(IV) TM-11/TU-10 magtape interface
+tty(IV) general typewriter interface
+vs(IV) voice synthesizer interface
+vt(IV) 11/20 (vt01) interface

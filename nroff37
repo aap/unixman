@@ -1,0 +1,16 @@
+#!/bin/rc
+
+fn esc {
+	sed 's///g
+	s///g
+	s///g'
+}
+fn unesc {
+	sed 's///g
+	s///g
+	s///g'
+}
+
+echo '<pre>'
+cat $* | esc | sed 's/^	/ 	/' | nroff -T37 | unesc | 37map | 37html
+echo '</pre>'

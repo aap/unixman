@@ -1,0 +1,14 @@
+#!/bin/rc
+
+# remove .xx macro because it uses .li ...
+awk '
+BEGIN { p=1 }
+/^.de xx/ { p=0; next }
+/^\.\./ { p=1; next }
+p==1 { print }' |
+
+# ... and expand manually
+sed 's/^\.xx/.ti0\n.li/' |
+
+# corrupt data
+sed 's/-� th�/-- the/'

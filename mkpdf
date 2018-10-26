@@ -1,0 +1,45 @@
+#!/bin/rc
+
+rfork e
+
+switch($#*){
+case 2
+	d=$1
+case *
+	exit
+}
+
+cd $d
+
+fn mksec {
+	cd man$1
+	pwd
+	files=`{ls | sed 's/.pdf//'}
+	xx=()
+	for(f in $files){
+		if(~ $f intro)
+			xx=($f $xx)
+		if not
+			xx=($xx $f)
+	}
+	files=$xx
+
+	gs -q '-sDEVICE=pdfwrite' -dNOPAUSE -dBATCH -dSAFER '-sOutputFile=../'^man$1^'.pdf' $files^.pdf
+	cd ..
+
+}
+
+switch($2){
+case [1234578]
+	mksec $2
+case all
+	mksec 1
+	mksec 2
+	mksec 3
+	mksec 4
+	mksec 5
+	mksec 6
+	mksec 7
+	mksec 8
+	gs -q '-sDEVICE=pdfwrite' -dNOPAUSE -dBATCH -dSAFER '-sOutputFile=all.pdf' man[0-8].pdf
+}

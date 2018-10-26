@@ -1,0 +1,30 @@
+.th TTYS V 2/20/74
+.sh NAME
+ttys \*- typewriter initialization data
+.sh DESCRIPTION
+The
+.it ttys
+file is read by the
+.it init
+program and specifies
+which typewriter special files are to have
+a process created for them which will allow people to
+log in.
+It consists of lines of 3 characters each.
+.s3
+The first character is either `0' or `1';
+the former causes the line to be ignored,
+the latter causes it to be effective.
+The second character is the last character in the name
+of a typewriter; e.g. \fIx\fR refers to
+the file `/dev/tty\fIx\fR'.
+The third character is the offset in a table
+contained in
+.it init
+which selects an initialization program for the line;
+currently it must be `0' and the only such program is
+.it /etc/getty.
+.sh FILES
+found in /etc
+.sh "SEE ALSO"
+init (VIII)

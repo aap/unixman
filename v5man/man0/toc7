@@ -1,0 +1,5 @@
+.xx "ascii" "map of ASCII character set"
+.xx "greek" "graphics for extended TTY-37 type-box"
+.xx "tabs" "set tab stops"
+.xx "tmheader" "TM cover sheet"
+.xx "vs" "voice synthesizer code"

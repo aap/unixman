@@ -1,0 +1,65 @@
+.th OPR I 3/20/74
+.sh NAME
+opr \*- off line print
+.sh SYNOPSIS
+.bd opr
+[ \fB\*-\*-\fR[
+.it id
+]] [
+.bd \*-
+] [
+.bd +
+] [
+.bd +\*-
+]file ...
+.sh DESCRIPTION
+.it Opr
+will arrange to have the
+201 data phone daemon submit a job to the
+Honeywell 6070 to print the file arguments.
+Normally,
+the output appears at the GCOS central site.
+If the first argument is
+.bd \*-\*-,
+followed by an optional two-character remote station ID,
+the output
+is remoted to that station.
+If no station ID is given,
+R1 is assumed.
+(Station R1 has an IBM 1403 printer.)
+.s3
+Normally, each file is printed in the state it is found
+when the data phone daemon reads it.
+If a particular file argument is preceded by
+.bd +,
+or a preceding argument of
+.bd +
+has been encountered,
+then
+.it opr
+will make a copy for the daemon to print.
+If the file argument is preceded by
+.bd \*-,
+or a preceding argument of
+.bd \*-
+has been encountered,
+then
+.it opr
+will unlink (remove) the file.
+.s3
+If there are no
+arguments except for the optional
+.bd \*-\*-,
+then the standard input is read and off-line printed.
+Thus
+.it opr
+may be used as a filter.
+.sh FILES
+/usr/dpd/*	spool area
+.br
+/etc/passwd	personal ident cards
+.br
+/etc/dpd		daemon
+.sh "SEE ALSO"
+dpd (VIII), passwd (V)
+.sh BUGS

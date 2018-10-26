@@ -1,0 +1,55 @@
+.th WC I 3/10/74
+.sh NAME
+wc \*- word count
+.sh SYNOPSIS
+.bd wc
+[
+.bd \*-rlwapc
+] [ name ... ]
+.sh DESCRIPTION
+.it Wc
+counts lines and words in the named files,
+or in the standard input if no name appears.
+A word is a maximal string of ascii graphics
+delimited by spaces, tabs or newlines.
+Other characters are always ignored.
+.s3
+Any of the following options may appear in any order.
+When any option other than
+.bd \*-r
+appears,
+only the specified information is reported in the order
+in which the options occur.
+Otherwise, printing is as with option
+.bd \*-lw.
+.s3
+.lp +4 4
+\fB\*-r\fR	Ignore all
+.it "roff, nroff"
+and
+.it troff
+control lines, i.e. lines beginngin with `.' or `\*a'.
+.s3
+.lp +4 4
+\fB\*-l\fR	Print count of lines
+.s3
+.lp +4 4
+\fB\*-w\fR	Print count of words
+.s3
+.lp +4 4
+\fB\*-a\fR	Print count of alphanumeric strings,
+with underscore taken as alphanumeric.
+.s3
+.lp +4 4
+\fB\*-p\fR	Print count of punctuation strings,
+i.e. all strings of printing characters other than alphanumerics.
+.s3
+.lp +4 4
+\fB\*-c\fR	Print count of
+.it roff
+control lines, regardless of
+.bd \*-r.
+.i0
+.sh DIAGNOSTICS
+`Cannot open' for unopenable file.
+.sh BUGS

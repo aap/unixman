@@ -1,0 +1,23 @@
+20boot(VIII) install new 11/20 system
+ac(VIII) login accounting
+boot procedures(VIII) UNIX startup
+check(VIII) file system consistency check
+clri(VIII) clear i-node
+df(VIII) disk free
+dpd(VIII) spawn data phone daemon
+dump(VIII) incremental file system dump
+getty(VIII) set typewriter mode
+glob(VIII) generate command arguments
+init(VIII) process control initialization
+lpd(VIII) line printer daemon
+mkfs(VIII) construct a file system
+mknod(VIII) build special file
+mount(VIII) mount file system
+msh(VIII) mini-shell
+reloc(VIII) relocate object files
+restor(VIII) incremental file system restore
+sa(VIII) Shell accounting
+su(VIII) become privileged user
+sync(VIII) update the super block
+umount(VIII) dismount file system
+update(VIII) periodically update the super block

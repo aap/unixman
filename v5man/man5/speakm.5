@@ -1,0 +1,54 @@
+.th SPEAK.M V 5/30/74
+.sh NAME
+speak.m \*- voice synthesizer vocabulary
+.sh SYNOPSIS
+.nf
+.ft B
+struct {
+	int n;
+	struct {
+		int key;
+		int phon;
+	} entry[vocab.n];
+	int m;
+	char strings[vocab.m];
+} vocab
+.ft R
+.fi
+.sh DESCRIPTION
+This type of file is created and used only by
+.it speak.
+The keys are the words,
+word fragments and
+letters of the vocabulary.
+.s3
+The \fIi\fRth key is stored as a null-terminated string at
+.it &vocab.strings[entry[i].key].
+Its phonetic string is similarly stored at
+.it &vocab.strings[entry[i].phon].
+The keys are ordered lexicographically.
+The contents of certain parts of
+.it vocab
+are invariant:
+.it "vocab.entry[0].key ="
+.it "vocab.entry[0].phon ="
+.it "vocab.strings[0] = 0."
+.s3
+Each key is maintained exactly as entered into
+.it speak,
+so that fragments are recognized by an initial `%'
+and letters by an initial `*'.
+.s3
+Each phoneme of a phonetic string is maintained in
+.it vs
+code.
+A `%' in a phonetic string is represented as octal 001,
+and all following characters are kept literally.
+.sh "SEE ALSO"
+speak (VI), vs (VII)
+.sh BUGS
+The coding 001 for `%' precludes the use of phoneme
+.it 3-1,
+which is no particular loss on the model 5 Vortrax,
+but will pinch on the model 6.
+0200 would be a safe choice.

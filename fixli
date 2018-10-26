@@ -1,0 +1,4 @@
+#!/bin/rc
+
+# .li is gone, have to use \& in next line
+sed '/^\.li/ {n;s/^/\\\&/;}'

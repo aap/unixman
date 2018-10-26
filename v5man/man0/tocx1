@@ -1,0 +1,81 @@
+ar(I) archive and library maintainer
+as(I) assembler
+cat(I) concatenate and print
+cc(I) C compiler
+cdb(I) C debugger
+chdir(I) change working directory
+chmod(I) change mode
+chown(I) change owner
+cmp(I) compare two files
+comm(I) print lines common to two files
+cp(I) copy
+cref(I) make cross reference listing
+date(I) print and set the date
+db(I) debug
+dc(I) desk calculator
+dd(I) convert and copy a file
+diff(I) differential file comparator
+dsw(I) delete interactively
+du(I) summarize disk usage
+echo(I) echo arguments 
+ed(I) editor
+eqn(I) typeset mathematics
+exit(I) terminate command file
+fc(I) fortran compiler
+fed(I) edit associative memory for form letter
+find(I) find files
+form(I) form letter generator
+goto(I) command transfer
+grep(I) search a file for a pattern
+if(I) conditional command
+kill(I) do in an unwanted process
+ld(I) link editor
+ln(I) make a link
+login(I) sign onto UNIX
+lpr(I) on line print
+ls(I) list contents of directory
+mail(I) send mail to another user
+man(I) run off section of UNIX manual
+mesg(I) permit or deny messages
+mkdir(I) make a directory
+mv(I) move or rename a file
+neqn(I) typeset mathematics on terminal
+nice(I) run a command at low priority
+nm(I) print name list
+nohup(I) run a command immune to hangups
+nroff(I) format text
+od(I) octal dump
+opr(I) off line print
+passwd(I) set login password
+pfe(I) print floating exception
+pr(I) print file
+prof(I) display profile data
+ps(I) process status
+pwd(I) working directory name
+rew(I) rewind tape
+rm(I) remove (unlink) files
+rmdir(I) remove directory
+roff(I) format text
+sh(I) shell (command interpreter)
+shift(I) adjust Shell arguments
+size(I) size of an object file
+sleep(I) suspend execution for an interval
+sort(I) sort or merge files
+spell(I) find spelling errors
+split(I) split a file into pieces
+strip(I) remove symbols and relocation bits
+stty(I) set teletype options
+sum(I) sum file
+tee(I) pipe fitting
+time(I) time a command
+tp(I) manipulate DECtape and magtape
+tr(I) transliterate
+troff(I) format text
+tss(I) interface to MH-TSS
+tty(I) get typewriter name
+typo(I) find possible typos
+uniq(I) report repeated lines in a file
+wait(I) await completion of process
+wc(I) word count
+who(I) who is on the system
+write(I) write to another user

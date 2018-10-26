@@ -1,0 +1,45 @@
+.th PLOG VI 5/1/74
+.sh NAME
+plog \*- make a graph on the gsi terminal
+.sh SYNOPSIS
+.bd plog
+[ option ] ...
+.sh DESCRIPTION
+.it Plog
+is almost the same as
+.it plog
+(q.v.) but the plot is written on the standard output
+using the control sequences for the GSI terminal.
+The following changes have been made:
+.s3
+.lp +2 2
+-	The default for grid is no grid at all.
+.br
+.lp +2 2
+-	The `a' option can be followed by two arguments;
+the second is the starting point for automatic abscissas.
+.br
+.lp +2 2
+-	There is a new option `h' which must be followed
+by a numerical argument:
+it specifies the height desired for the plot.
+.br
+.lp +2 2
+-	There is a new option `w' similar to `h',
+except that the width is specified.
+If only on of `h' and `w' is given,
+the plot is made square of the indicated size.
+If neither is given,
+the plot is made six inches square.
+.br
+.lp +2 2
+-	There is a new option `r' to be followed by a number
+which loates the plot that many inches to the right
+on the page.
+.sh "SEE ALSO"
+plot (VI)
+.sh BUGS
+Same as plot (VI). Drawing lines is not yet done exactly right.
+If you store the output in a file,
+before printing with cat you must turn off delays
+and turn off CR-NL echo (e.g. ``stty -delay nl'');

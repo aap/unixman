@@ -1,0 +1,16 @@
+#!/bin/rc
+
+v=v5man
+
+mkdir -p html_$v
+
+for(s in $v/man[1-8x]){
+	mkdir -p html_$s
+	echo $s
+	for(p in $s/*){
+		pagename=`{basename $p}
+		h=html_`{echo $p | sed 's/\.[1-8]$/.html/'}
+		echo $h
+		cat $v/man0/naa_x $p | fixli | nroff37 >$h
+	}
+}

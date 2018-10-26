@@ -1,0 +1,13 @@
+a.out(V) assembler and link editor output
+ar(V) archive (library) file format
+core(V) format of core image file
+dir(V) format of directories
+dump(V) incremental dump tape format
+fs(V) format of file system volume
+mtab(V) mounted file system table
+passwd(V) password file
+speak.m(V) voice synthesizer vocabulary
+tp(V) DEC/mag tape formats
+ttys(V) typewriter initialization data
+utmp(V) user information
+wtmp(V) user login history

@@ -1,0 +1,37 @@
+.th IBM VI 3/20/74
+.sh NAME
+ibm \*- submit off-line job to HO IBM 370
+.sh SYNOPSIS
+.bd ibm
+[
+.bd \*-j
+] file ...
+.sh DESCRIPTION
+.it Ibm
+arranges to have the 201 data phone daemon submit
+a job to the IBM 370 at Holmdel via the Murray Hill H6070.
+Normally the job is submitted with enough ``JCL''
+(the IBM version of the shell)
+to return the output to your box at Murray Hill.
+You can supply your own if you dare\*-
+the
+.bd \*-j
+option suppresses all JCL.
+.s3
+If there are no arguments,
+the standard input is read and submitted.
+Thus
+.it ibm
+may be used as a filter.
+.sh FILES
+/usr/dpd/*	spool area
+.br
+/etc/passwd	personal ident cards
+.br
+/etc/dpd	daemon
+.sh "SEE ALSO"
+dpd (VIII), passwd (V)
+.sh BUGS
+Stuff is sent on 6-bit cards,
+so lower case vanishes,
+as do some of the special characters.

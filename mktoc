@@ -1,0 +1,119 @@
+#!/bin/rc
+
+rfork n
+
+switch($#*){
+case 2
+	d=$1
+case *
+	exit
+}
+
+# here document doesn't work in function
+cat >/tmp/edtoc <<EOF
+v/\.[12345678]$/d
+g/intro.2/d
+g/^/s//e /\
+.a\
+/NAME/1p
+w
+q
+EOF
+
+if(~ $d *v4*)
+	x=x
+if not
+	x=''
+
+cat >/tmp/edtoc2 <<EOF
+e tocx1
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^1
+e tocx2
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^2
+e tocx3
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^3
+e tocx4
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^4
+e tocx5
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^5
+e tocx6
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^6
+e tocx7
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^7
+e tocx8
+1,$$s/\([IV]*\) /" "/
+1,$$s/.*/.xx "&"/
+w toc$x^8
+q
+EOF
+
+fn toc {
+	echo making toc $1 $2
+	cd man$1
+	ls > xa
+	ed - xa </tmp/edtoc
+	ed - <xa >xb
+	echo '1,$s/ *\\\*- */('^$2^') /' >xa
+	if(~ $1 2 && ! ~ $d *v4*){
+		echo 0a >>xa
+		echo 'intro(II) introduction to system calls' >>xa
+		echo . >>xa
+	}
+	echo w ../man0/tocx^$1 >> xa
+	ed - xb <xa
+	rm xa xb
+	cd ..
+}
+
+cd $d
+pwd
+switch($2){
+case 1
+	toc 1 I
+case 2
+	toc 2 II
+case 3
+	toc 3 III
+case 4
+	toc 4 IV
+case 5
+	toc 5 V
+case 6
+	toc 6 VI
+case 7
+	toc 7 VII
+case 8
+	toc 8 VIII
+case t
+	cd man0
+	cat tocx? >cattoc
+	../../ptx -t cattoc ptxx
+	rm cattoc
+	ed - </tmp/edtoc2
+case all
+	toc 1 I
+	toc 2 II
+	toc 3 III
+	toc 4 IV
+	toc 5 V
+	toc 6 VI
+	toc 7 VII
+	toc 8 VIII
+case *
+	echo $2
+	echo botch
+}

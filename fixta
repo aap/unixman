@@ -1,0 +1,19 @@
+#!/bin/rc
+awk '
+/^\.ta/ {
+	str = $1
+	p = 0
+	for(i = 2; i <= NF; i++){
+		if($i < p){
+			str = str" +"$i
+			p += $i
+		}else{
+			str = str" "$i
+			p = $i
+		}
+	}
+	print str
+	next
+}
+{ print }
+'

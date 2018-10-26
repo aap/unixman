@@ -1,0 +1,39 @@
+.th GRAF VI 5/1/74
+.sh NAME
+graf \*- draw graph on GSI terminal
+.sh SYNOPSIS
+.bd "graf | nroff | gsi"
+.sh DESCRIPTION
+.it Graf
+is a preprocessor to
+.it nroff
+(q.v.) for producing plots imbedded in documents.
+The standard input is copied to the standard output
+except for plots,
+which are inserted whenever a line beginning ``.GR'' is found.
+The remainder of the line should be the arguments to
+.it plog,
+normally including a ``<file'' to point off
+to the data for the graph.
+.it Graf
+itself reads its standard input.
+
+.it Graf
+and
+.it neqn
+can be used together:
+
+neqn files | graf | nroff | gsi
+
+produces a memo with figures and equations and text all intermixed.
+There is no typesetter equivalent of
+.it graf,
+nor are there any plans for one.
+.sh "SEE ALSO"
+plog (VI), neqn (I), nroff (I), gsi (VI)
+.sh BUGS
+Same as
+.it plog
+(VI).
+Axes and labels are not scaled down correctly for smaller graphs.
+It should recognize .so commands.

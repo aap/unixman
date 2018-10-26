@@ -1,0 +1,77 @@
+.th CDB I 8/15/73
+.sh NAME
+cdb \*- C debugger
+.sh SYNOPSIS
+.bd cdb
+[ core [ a.out ] ]
+.sh DESCRIPTION
+.it Cdb
+is a debugger for use with C programs.
+The first argument is a core-image file;
+if not given, ``core'' is used.
+The second argument is the object
+program (containing a symbol table);
+if not given ``a.out'' is used.
+An acceptable core and object file
+must both be present.
+.s3
+Commands to
+.it cdb
+consist of an address,
+followed by a single command character.
+If no address is given the last-printed
+address is used.
+An address may be followed by a comma and
+a number,
+in which case the command applies
+to the appropriate number of successive addresses.
+.s3
+Addresses are expressions composed of names,
+decimal numbers, and octal numbers
+(which begin with ``0'') and separated by
+``+'' and ``\*-''.
+Evaluation proceeds left-to-right.
+The construction ``name[expression]''
+assumes that
+.it name
+is a pointer to an integer
+and is equivalent
+to the contents of the named cell plus twice the expression.
+.s3
+The command characters are:
+.s3
+.lp +4 4
+/	print the addressed words in octal.
+.s3
+.lp +4 4
+=	print the value of the addressed expression.
+.c2 @
+.s3
+.lp +4 4
+\*a	print the addressed bytes as characters.
+.c2 '
+.s3
+.lp +4 4
+"	take the address as a pointer to a sequence
+of characters, and print the characters up to a null byte.
+.s3
+.lp +4 4
+&	If there is any symbol which has the same value
+as the address, print the symbol's name.
+.s3
+.lp +4 4
+$	print a stack trace of the terminated program.
+The calls are listed in the order made;
+the actual arguments to each routine are
+given in octal.
+.s3
+.i0
+.sh "SEE ALSO"
+cc (I), db (I), C Reference Manual
+.sh BUGS
+It's still very feeble,
+even compared with
+.it "db (I)."
+The stack trace is also pretty
+vulnerable to corruption,
+and often doesn't work.

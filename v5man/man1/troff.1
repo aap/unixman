@@ -1,0 +1,97 @@
+.tc |
+.tr |
+.th TROFF I 5/15/74
+.sh NAME
+troff  \*-  format text
+.sh SYNOPSIS
+.bd troff
+[ \fB+\fIn\fR ] [ \fB\*-\fIn\fR ] [
+\fB\-n\fIn\fR
+] [
+\fB\-m\fIx\fR
+] [
+.bd \*-t
+] [
+.bd \*-f
+] [
+.bd \*-w
+] [
+.bd \*-i
+] [
+.bd \*-a
+] [
+\fB\-p\fIn\fR
+] files
+.sh DESCRIPTION
+.it Troff
+formats text for a Graphic Systems phototypesetter
+according to control lines embedded
+in the text files.
+It reads the standard input if
+no file
+arguments are given.
+The non-file option arguments are interpreted as follows:
+.s3
+.lp +7 7
+\fB+\fIn\fR	Commence
+typesetting at the first page numbered \fIn\fR or larger.
+.s3
+.lp +7 7
+\fB\*-\fIn\fR	Stop
+after page
+.it n.
+.s3
+.lp +7 7
+\fB\-n\fIn\fR	First generated (not necessarily printed)
+page is given the number \fIn;\fR
+simulates ``.pn|\fIn\fR''.
+.s3
+.lp +7 7
+\fB\-m\fIx\fR	Prepends a standard macro file;
+simulates ``.so /usr/lib/tmac.\fIx\fR''.
+.s3
+.lp +7 7
+\fB\*-t\fR	Place output
+on standard output instead
+of the phototypesetter.
+.s3
+.lp +7 7
+\fB\*-f\fR	Refrain
+from feeding out paper and stopping the phototypesetter
+at the end.
+.s3
+.lp +7 7
+\fB\*-w\fR	Wait
+until phototypesetter is available, if currently busy.
+.s3
+.lp +7 7
+\fB\*-i\fR	Read from standard input
+after the files have been exhausted.
+.s3
+.lp +7 7
+\fB\*-a\fR	Send a printable
+approximation
+of the results to the standard output.
+.s3
+.lp +7 7
+\fB\-p\fIn\fR	Print all characters
+with point-size \fIn\fR while
+retaining all prescribed spacings and motions.
+.s3
+.i0
+.sh FILES
+.dt
+/usr/lib/suftab	suffix hyphenation tables
+.br
+/tmp/rtm?	temporary
+.br
+/usr/lib/tmac.x	standard macro files
+.br
+.sh "SEE ALSO"
+TROFF User's Manual (internal memorandum).
+.br
+TROFF Made Trivial (internal memorandum).
+.br
+nroff (I), eqn (I),
+catsim (VI)
+.sh BUGS

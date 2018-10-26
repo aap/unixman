@@ -1,0 +1,39 @@
+#!/bin/rc
+
+v=v6man
+
+mkdir -p pdf_$v
+
+ap=`{pwd}^/$v
+pp=`{pwd}^/pdf_$v
+owd=`{pwd}
+
+cd $ap/man0/
+{echo '.af % i'; cat $ap/man0/^(intro basinf toc ptx)} | troff |
+	lp -d stdout | ps2pdf >$pp/man0.pdf
+cd $owd
+
+fn condeqn {
+	switch($pagename){
+	case eqn.1
+		eqn
+	case *
+		cat
+	}
+}
+
+fn troffpipe {
+	fixv6 | fixli | fixta | condeqn | troff | lp -d stdout | ps2pdf
+}
+
+for(s in $v/man[1-8x]){
+	mkdir -p pdf_$s
+	echo $s
+	for(p in $s/*){
+		pagename=`{basename $p}
+		h=pdf_`{echo $p | sed 's/\.[1-8]$//
+s/$/.pdf/'}
+		echo $h
+		cat page $v/man0/taa $p | troffpipe >$h
+	}
+}

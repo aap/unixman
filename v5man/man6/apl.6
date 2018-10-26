@@ -1,0 +1,62 @@
+.th AZEL VI 5/27/74
+.sh NAME
+apl \*- APL interpreter
+.sh SYNOPSIS
+.bd apl
+.sh DESCRIPTION
+.it Apl
+is an interpreter for the language APL
+described in the reference.
+The interpreter maintains its workspace
+on disk rather than in core.
+This has two consequences:
+there is the potential of a million byte workspace;
+it takes a week to access that much data.
+.s3
+Not Implemented (never)
+.lp +5 3
+1.	Lamination (except for scalar,scalar)
+.lp +5 3
+2.	0 div 0 is a domain error.
+.lp +5 3
+3.	0 mod x is a domain error.
+.lp +5 3
+4.	No function definition \*-
+use `)edit fname' to enter the system editor;
+type ``w'' when done editing to write the function out
+in a place where apl can pick it up.
+Type ``w file'' to save it.
+.lp +5 3
+5.	Indexing is off in character vectors containing overstrikes.
+.i0
+.s3
+Under Implementation (later)
+.lp +5 3
+1.	Negative numbers raised to fractional powers
+are handled incorrectly.
+.lp +5 3
+2.	No trace or SI.
+.lp +5 3
+3.	Incomplete set of I-beams and system calls.
+.i0
+.s3
+Over Implemented (over zealous)
+.lp +5 3
+1.	Ravel[i] \*- obvious extension of cat.
+.lp +5 3
+2.	Grade up and grade down extend to matrices.
+.lp +5 3
+3.	Arbitrary overstriking is allowed in characters.
+.i0
+.dt
+.sh FILES
+/usr/lib/apl/*	programs
+.br
+alloc.d	workspace
+.br
+apl_ed	editor intermediate
+.sh "SEE ALSO"
+IBM GH20-0906-1 ``APL User's Manual''
+.br
+/usr/pub/apl ASCII APL character set
+.sh BUGS

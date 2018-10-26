@@ -1,0 +1,228 @@
+.tc |
+.tr |
+.de x
+.in \\n(inu
+.if t .ta \\$2
+.if n .ta \\$2+1
+.in \\$1
+.ti -\\$2
+\fB\\$3\fP\t\\
+..
+.th NROFF I 5/15/74
+.sh NAME
+nroff  \*-  format text
+.sh SYNOPSIS
+.bd nroff
+[
+\fB+\fIn\fR
+] [
+\fB\*-\fIn\fR
+] [
+\fB\-n\fIn\fR
+] [
+\fB\-m\fIx\fR
+] [
+.bd \*-s
+] [
+.bd \*-h
+] [
+.bd \*-q
+] [
+.bd \*-i
+] files
+.sh DESCRIPTION
+.it Nroff
+formats text according to control lines embedded
+in the text files.
+.it Nroff
+will read the standard input if
+no file
+arguments are given.
+The non-file option arguments are interpreted as follows:
+.s3
+.lp +7 7
+\fB+\fIn\fR	Output will commence at the first page whose page
+number is
+.it n
+or larger
+.s3
+.lp +7 7
+\fB\*-\fIn\fR	will
+cause printing to stop after page
+.it n.
+.s3
+.lp +7 7
+\fB\-n\fIn\fR	First generated (not necessarily printed)
+page is given number \fIn\fR;
+simulates ``.pn|\fIn\fR''.
+.s3
+.lp +7 7
+\fB\-m\fIx\fR	Prepends a standard macro file;
+simulates ``.so /usr/lib/tmac.\fIx\fR''.
+.s3
+.lp +7 7
+\fB\*-s\fR	Stop prior to
+each page to permit paper
+loading.
+Printing is restarted by
+typing a `newline' character.
+.s3
+.lp +7 7
+\fB\*-h\fR	Spaces
+are replaced where possible
+with
+tabs to speed up output (or reduce
+the size of the output file).
+.s3
+.lp +7 7
+\fB\*-q\fR	Prompt
+names for insertions are not printed
+and the bell character is sent instead;
+the insertion is not echoed.
+.s3
+.lp +7 7
+\fB\*-i\fR	Causes the
+standard input to be read after the files.
+.i0
+.sh FILES
+.dt
+/usr/lib/suftab	suffix hyphenation tables
+.br
+/tmp/rtm?	temporary
+.br
+/usr/lib/tmac.?	standard macro files
+.br
+.sh "SEE ALSO"
+NROFF User's Manual
+(internal memorandum).
+.br
+neqn (I)
+.sh BUGS
+.in 0
+.bp
+.nf
+.tr &.
+.if t .ta .75i 1.5i 2.25i 2.75i
+.if n 10 18 28 34
+.ce
+REQUEST REFERENCE AND INDEX
+.s3
+Request	Initial	If no	Cause
+Form	Value	Argument	Break	Explanation
+.s3
+I.  Page Control
+.s3
+&pl +N	N=66	N=66	no	Page length.
+&bp +N	N=1	-	yes	Begin page.
+&pn +N	N=1	ignored	no	Page number.
+&po +N	N=0	N=prev	no	Page offset.
+&ne N	-	N=1	no	Need N lines.
+&mk	none	-	no	Mark current line.
+&rt	-	-	no	Return to marked line.
+.s3
+II.  Text Filling, Adjusting, and Centering
+.s3
+&br	-	-	yes	Break.
+&fi	fill	-	yes	Fill output lines.
+&nf	fill	-	yes	No filling and adjusting.
+&ad c	adj,norm adjust	no	Adjust mode on.
+&na	adjust	-	no	No adjusting.
+&ce N	off	N=1	yes	Center N input text lines.
+.s3
+III.  Line Spacing and Blank Lines
+.s3
+&ls +N	N=1	N=prev	no	Line Spacing.
+&sp N	-	N=1	yes	Space N lines
+&lv N	-	N=1	no	Save N lines
+&sv N	-	N=1	no	"
+&os	-	-	no	Output Saved lines.
+&ns	space	-	no	No-Space mode on.
+&rs	-	-	no	Restore spacing.
+&xh	off	-	no	Extra-half-line mode on.
+.s3
+IV.  Line Length and Indenting
+.s3
+&ll +N	N=65	N=prev	no	Line length.
+&in +N	N=0	N=prev	yes	Indent.
+&ti +N	-	N=1	yes	Temporary indent.
+.s3
+V.  Macros, Diversion, and Line Traps
+.s3
+&de xx	-	ignored	no	Define or redefine a macro.
+&am xx	-	ignored	no	Append to a macro.
+&ds xx	-	ignored	no	Define or redefine string.
+&as xx	-	ignored	no	Append to a string.
+&rm xx	-	-	no	Remove macro name.
+&di xx	-	end	no	Divert output to macro "xx".
+&da xx	-	end	no	Divert and append to "xx".
+&wh -N xx	-	-	no	When; set a line trap.
+&ch -N -M	-	-	no	Change trap line.
+&ch xx -M	-	-	no	"
+.s3
+VI.  Number Registers
+.s3
+&nr ab +N -M	-	no	Number Register.
+&nr a +N -M	-	no		"
+&nc c	\\n	\\n	no	Number Character.
+&ar	arabic	-	no	Arabic numbers.
+&ro	arabic	-	no	Lower case roman numbers.
+&RO	arabic	-	no	Upper case roman numbers.
+.s3
+VII.  Input and Output Conventions and Character Translations
+.s3
+&ta N,M,...	-	none	no	Pseudotabs setting.
+&tc c	space	space	no	Tab replacement character.
+&lc c	.	.	no	Leader replacement character.
+&ul n	-	N=1	no	Underline input text lines.
+&cc c	\fB.\fR	\fB.\fR	no	Basic control character.
+.if t .tr '\(fm
+&c2 c	'	'	no	Nobreak control character.
+&ec c	-	\\	no	Escape character.
+&li N	-	N=1	no	Accept input lines literally.
+&tr abcd....	-	-	no	Translate on output.
+.s3
+VIII.  Hyphenation.
+.s3
+&nh	on	-	no	No hyphenation.
+&hy	on	-	no	Hyphenate.
+&hc c	none	none	no	Hyphenation indicator character.
+.s3
+IX.  Three Part Titles.
+.s3
+&tl 'left'center'right'	-	no	Title.
+&lt N	N=65	N=prev	no	Length of title.
+.s3
+X.  Output Line Numbering.
+.s3
+&nm +N M S I	off	no	Number mode on or off, set parameters.
+&np M S I	-	reset	no	Number parameters set or reset.
+.s3
+XI.  Conditional Input Line Acceptance
+.s3
+&if !N anything	-	no	If true accept line of "anything".
+&if c anything	-	no		"
+&if !c anything	-	no		"
+&if N anything	-	no		"
+.s3
+XII.  Environment Switching.
+.s3
+&ev N	N=0	N=prev	no	Environment switched (pushed down).
+.s3
+XIII.  Insertions from the Standard Input Stream
+.s3
+&rd prompt	-	bell	no	Read insert.
+&ex	-	-	no	Exit.
+.s3
+XIV.	Input File Switching 
+.s3
+&so filename	-	-	no	Switch source file (push down).
+&nx filename	-	no	Next file.
+.s3
+XV.	Miscellaneous
+.s3
+&tm mesg	-	-	no	Typewriter message
+&ig	-	-	no	Ignore.
+&fl	-	-	no	Flush output buffer.
+&ab	-	-	no	Abort.
+.fi
+.tr &&

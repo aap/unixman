@@ -1,0 +1,41 @@
+intro(II) introduction to system calls
+break(II) set program break
+chdir(II) change working directory
+chmod(II) change mode of file
+chown(II) change owner
+close(II) close a file
+creat(II) create a new file
+csw(II) read console switches
+dup(II) duplicate an open file descriptor
+exec(II) execute a file
+exit(II) terminate process
+fork(II) spawn new process
+fstat(II) get status of open file
+getgid(II) get group identifications
+getuid(II) get user identifications
+gtty(II) get typewriter status
+indir(II) indirect system call
+kill(II) send signal to a process
+link(II) link to a file
+mknod(II) make a directory or a special file
+mount(II) mount file system
+nice(II) set program priority
+open(II) open for reading or writing
+pipe(II) create a pipe
+profil(II) execution time profile
+read(II) read from file
+seek(II) move read/write pointer
+setgid(II) set process group ID
+setuid(II) set process user ID
+signal(II) catch or ignore signals
+sleep(II) stop execution for interval
+stat(II) get file status
+stime(II) set time
+stty(II) set mode of typewriter
+sync(II) update super-block
+time(II) get date and time
+times(II) get process times
+umount(II) dismount file system
+unlink(II) remove directory entry
+wait(II) wait for process to die
+write(II) write on a file

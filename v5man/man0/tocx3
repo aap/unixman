@@ -1,0 +1,36 @@
+alloc(III) core allocator
+atan(III) arc tangent function
+atof(III) ascii to floating
+crypt(III) password encoding
+ctime(III) convert date and time to ASCII
+ecvt(III) output conversion
+exp(III) exponential function
+floor(III) floor and ceiling functions
+fptrap(III) floating point interpreter
+gamma(III) log gamma function
+getarg(III) get command arguments from Fortran
+getc(III) buffered input
+getchar(III) read character
+getpw(III) get name from UID
+hmul(III) high-order product
+hypot(III) calculate hypotenuse
+ierror(III) catch Fortran errors
+ldiv(III) long division
+locv(III) long output conversion
+log(III) natural logarithm
+monitor(III) prepare execution profile
+nargs(III) argument count
+nlist(III) get entries from name list
+perror(III) system error messages
+pow(III) floating exponentiation
+printf(III) formatted print
+putc(III) buffered output
+putchar(III) write character
+qsort(III) quicker sort
+rand(III) random number generator
+reset(III) execute non-local goto
+setfil(III) specify Fortran file name
+sin(III) sine, cosine
+sqrt(III) square root function
+ttyn(III) return name of current typewriter
+vt(III) display (vt01) interface

@@ -1,0 +1,33 @@
+.th GSI VI 3/20/74
+.sh NAME
+gsi \*- interpret extended character set on GSI terminal
+.sh SYNOPSIS
+.bd gsi
+.sh DESCRIPTION
+.it Gsi
+interprets
+commands specific to the GSI terminal.
+It converts half line forward and reverse motions
+into the right vertical motion.
+It also attempts to draw Greek letters and
+other special symbols
+of the Model 37 extended character set.
+(These are normally preceded by shift-out
+and followed by shift-in.)
+.it Gsi
+is most often used
+to print equations neatly, in the sequence
+.s3
+     neqn file ... | nroff | gsi
+.s3
+.it Gsi
+also interprets the plot control characters ACK and BEL.
+This makes it useful in the sequence
+.s3
+     graf | nroff | gsi
+.sh FILES
+.sh "SEE ALSO"
+neqn (I), graf (VI), greek (VII)
+.sh BUGS
+Some funny characters can't be correctly printed in column 1
+because you can't move to the left from there.
