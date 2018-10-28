@@ -1,0 +1,40 @@
+.pa 1
+.he '3/15/72''DS (I)'
+.ti 0
+NAME		ds  --  directory consistency check
+.sp
+.ti 0
+SYNOPSIS	ds__ [ output ]
+.sp
+.ti 0
+DESCRIPTION	ds__
+will walk the directory tree from the root
+keeping a list of every file encountered.
+The second pass will read the i-list
+and compare the number of links there
+with the actual number found.
+All discrepancies are noted.
+.sp
+If an argument is given,
+a complete printout of
+file names by i-number is output on the argument.
+.sp
+.ti 0
+FILES		/, /dev/rk0, /tmp/dstmp
+.sp
+.ti 0
+SEE ALSO	check(I)
+.sp
+.ti 0
+DIAGNOSTICS	inconsistent i-numbers
+.sp
+.ti 0
+BUGS		the root is noted as inconsistent
+due to the fact that /_ exists in no directory.
+(Its i-number is 41.)
+.sp
+ds__ should take an alternate file system argument.
+.sp
+.ti 0
+OWNER		ken
+

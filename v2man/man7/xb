@@ -1,0 +1,9 @@
+NAME		ascii  --  map of ASCII character set
+NAME		bos, maki, rom, vcboot, msys, et al
+NAME		getty  -- set typewriter mode and get user's name
+NAME		glob  --  generate command arguments
+NAME		init  --  process control initialization
+NAME		kbd  --  keyboard map
+NAME		logging in and logging out
+NAME		msh  --  mini-shell
+NAME		tabs  --  set tab stops

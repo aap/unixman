@@ -1,0 +1,37 @@
+.pa 1
+.he '3/15/72''CTIME (III)'
+.ti 0
+NAME		ctime  --  convert date and time to ASCII
+.sp
+.ti 0
+SYNOPSIS	(move time to AC-MQ)
+.br
+mov	$buffer,r0
+.br
+jsr	pc,ctime
+.br
+.sp
+.ti 0
+DESCRIPTION	The output
+is 15 characters long.
+The time has the format
+.sp
+     Oct  9 17:32:24
+.sp
+The input time is in the AC and MQ registers in the form
+returned by sys___ time____.
+.sp
+.ti 0
+FILES		kept in /usr/lib/liba.a
+.sp
+.ti 0
+SEE ALSO	ptime(III), time(II)
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		dmr

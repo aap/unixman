@@ -1,0 +1,26 @@
+#!/bin/rc
+
+rfork ne
+
+v=v2man
+
+mkdir -p html_$v
+
+ap=`{pwd}^/$v
+hp=`{pwd}^/html_$v
+owd=`{pwd}
+bind -a $owd /bin
+
+cd $ap/man0
+cat $owd^/roffemu intro toc | $owd^/nroff37 > $hp/man0.html
+cd $owd
+
+for(s in $v/man[1-7]){
+	mkdir -p html_$s
+	echo $s
+	for(p in $s/*){
+		h=html_`{echo $p | sed 's/\.[1-8]$/.html/'}
+		echo $h
+		cat roffemu $v/man0/aa_x $p | fixv2 | fixli | nroff37 >$h
+	}
+}

@@ -1,0 +1,39 @@
+.pa 1
+.he '6/12/72''HYPOT (III)'
+.ti 0
+NAME		hypot -- calculate hypotenuse
+.sp
+.ti 0
+SYNOPSIS	(A in fr0)
+.br
+(B in fr0)
+.br
+jsr	r5,hypot
+.sp
+.ti 0
+DESCRIPTION	The
+square root of fr0*fr0 + fr1*fr1
+is returned in fr0.
+The calculation is done in such a way
+that overflow will not occur unless
+the answer is not representable in floating point.
+.sp
+The floating point simulator should be active
+in either single or double mode.
+.sp
+.ti 0
+FILES		kept in /usr/lib/liba.a
+.sp
+.ti 0
+SEE ALSO	fptrap(III)
+.sp
+.ti 0
+DIAGNOSTICS	The
+c-bit is set if the result cannot
+be represented.
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

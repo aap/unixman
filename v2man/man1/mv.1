@@ -1,0 +1,33 @@
+.pa 1
+.he '3/15/72''MV (I)'
+.ti 0
+NAME		mv  --  move or rename a file
+.sp
+.ti 0
+SYNOPSIS	mv__ name\d1\u name\d2\u
+.sp
+.ti 0
+DESCRIPTION	mv__
+changes the name of name\d1\u by linking to it
+under the name name\d2\u and then unlinking name\d1\u.
+If the new name is a directory, the file is moved to
+that directory under its old name.
+Directories may only be moved within the same parent
+directory (just renamed).
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Since mv is implemented by combinations of
+link____ and unlink______,
+it cannot be used to move between file systems.
+.sp
+.ti 0
+OWNER		ken, dmr

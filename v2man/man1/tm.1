@@ -1,0 +1,77 @@
+.pa 1
+.he '3/15/72''TM (I)'
+.ti 0
+NAME		tm  --  provide time information
+.sp
+.ti 0
+SYNOPSIS	tm__
+.sp
+.ti 0
+DESCRIPTION	tm__
+is used to provide timing information.
+When used without an argument, output like the following
+is given:
+.sp
+.in +5
+   tim 371:51:09     2:00.8
+   ovh  20:00:33       17.0
+   swp  13:43:20        4.6
+   dsk  27:14:35        4.5
+   idl 533:08:03     1:33.3
+   usr  24:53:50        1.2
+   der    0,  54     0,   0
+.sp
+.in -5
+The first column of numbers gives totals in the named categories
+since the last time the system was cold-booted;  the second
+column gives the changes since the last time tm__ was invoked.
+The tim___ row is total real time
+(hours:minutes:seconds);
+unlike the other times, its origin is the creation date of
+tm__'s temporary file.
+ovh___ is time spent
+executing in the system;
+swp___ is time waiting for swap I/O;
+dsk___ is time spent waiting for
+file system disk I/O; idl___ is idle time; usr___ is user execution
+time; der___ is RF disk error count (left number) and RK disk error
+count (right number).
+.sp
+tm__ can be invoked with arguments which are assumed
+to constitute a command to be timed.
+In this case the output is as follows:
+.sp
+.in +5
+ tim        2.7
+ ovh        0.3
+ swp        0.5
+ dsk        1.8
+ idl        0.0
+ usr        0.0
+.sp
+.in -5
+The given times represent the number of seconds spent
+in each category during execution of the command.
+
+.ti 0
+FILES		/tmp/ttmp,
+/dev/rf0 (for absolute times)
+contains the information used to calculate the differential times.
+.sp
+.ti 0
+SEE ALSO	file system(V)
+.sp
+.ti 0
+DIAGNOSTICS	"?" if the command cannot be executed;
+"can't creat temp file" if trouble with ttmp____;
+"cant read super-block" if times cannot be read from system.
+.sp
+.ti 0
+BUGS		(1) when invoked with a command argument,
+everything going on at the moment is counted,
+not just the command itself.
+(2) Two users doing tm__ simultaneously
+interfere with each other's use of the temporary file.
+.sp
+.ti 0
+OWNER		ken, dmr

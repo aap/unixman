@@ -1,5 +1,7 @@
 #!/bin/rc
 
+rfork ne
+
 v=v6man
 
 mkdir -p pdf_$v
@@ -7,10 +9,10 @@ mkdir -p pdf_$v
 ap=`{pwd}^/$v
 pp=`{pwd}^/pdf_$v
 owd=`{pwd}
+bind -a $owd /bin
 
 cd $ap/man0/
-{echo '.af % i'; cat $ap/man0/^(intro basinf toc ptx)} | troff |
-	lp -d stdout | ps2pdf >$pp/man0.pdf
+cat intro basinf toc ptx | oldtroff >$pp/man0.pdf
 cd $owd
 
 fn condeqn {
@@ -22,10 +24,6 @@ fn condeqn {
 	}
 }
 
-fn troffpipe {
-	fixv6 | fixli | fixta | condeqn | troff | lp -d stdout | ps2pdf
-}
-
 for(s in $v/man[1-8x]){
 	mkdir -p pdf_$s
 	echo $s
@@ -34,6 +32,6 @@ for(s in $v/man[1-8x]){
 		h=pdf_`{echo $p | sed 's/\.[1-8]$//
 s/$/.pdf/'}
 		echo $h
-		cat page $v/man0/taa $p | troffpipe >$h
+		cat page $v/man0/taa $p | fixv6 | condeqn | oldtroff >$h
 	}
 }

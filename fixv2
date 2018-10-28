@@ -1,0 +1,4 @@
+#!/bin/rc
+
+# this is used to escape some lines beginning with . in ed(I)
+sed 's//\\\&/g'

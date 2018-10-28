@@ -1,0 +1,19 @@
+#!/bin/rc
+
+# tries to emulate the old troff somewhat
+
+rfork e
+
+d=`{echo $0 | sed 's:[^/]*$::'}
+
+fn fixtroff {
+	# font names have to be uppercase
+	sed 's/\\fi/\\fI/g
+	s/\\fb/\\fB/g' |
+	# .li was removed (NOTE: this does not work for .li in macros)
+	$d^fixli |
+	# .ta changed semantics a bit
+	$d^fixta
+}
+
+{ cat $d^oldtroffemu; cat } | fixtroff | troff | lp -d stdout | ps2pdf

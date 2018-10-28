@@ -1,0 +1,53 @@
+.pa 1
+.he '3/28/72''TMG (VI)'
+.ti 0
+NAME		tmg -- compiler compiler
+.sp
+.ti 0
+SYNOPSIS	tmg___ name
+.sp
+.ti 0
+DESCRIPTION	tmg___
+produces a translator for the language whose parsing
+and translation rules are described in file name.t__.
+The new translator appears
+in a.out and may be used thus:
+.ce
+.sp
+a.out_____ input [ output ]
+.sp
+Except in rare cases input must be a randomly
+addressable file.
+If no output file is specified, the standard output file
+is assumed.
+.sp
+The tmg language is described in (Reference).
+.sp
+.ti 0
+FILES		/etc/tmg -- the compiler-compiler
+.br
+/etc/tmga,/etc/tmgb,/etc/tmgc -- libraries
+.br
+/etc/tmg0.s -- global definitions
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+.nf
+DIAGNOSTICS	??? -- illegal input, offending line follows
+fatal error codes, appear in tmg and a.out:
+ad -- address out of bounds
+so -- stack overflow
+ga -- address out of bounds  while generating
+ko -- too much parse without output
+to -- symbol table overflow
+gn -- getnam on symbol not in table
+co -- character string overflow
+.sp
+.fi
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		doug

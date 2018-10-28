@@ -1,0 +1,43 @@
+.pa 1
+.he '3/15/72''PTX (VI)'
+.ti 0
+NAME		ptx --  permuted index
+.sp
+.ti 0
+SYNOPSIS	ptx1____ input temp1
+.br
+sort____ temp1 temp2
+.br
+ptx2____ temp2 output
+.sp
+.ti 0
+DESCRIPTION	ptx___
+generates a permuted index from file input_____ on file output______.
+It has three phases: the first does the permutation, generating
+one line for each keyword in an input line.  The
+keyword is rotated to the front.
+The permuted file must then be
+sorted.
+ptx2____ then rotates each line around the middle
+of the page.
+
+input_____ should be edited to remove useless lines.
+The following words are suppressed:  "a", "and", "as",
+"is", "for", "of", "on", "or", "the", "to", "up".
+
+The index for this manual was generated using ptx___.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	sort
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+BUGS		dmr

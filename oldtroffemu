@@ -1,0 +1,9 @@
+.de bl
+.sp \\$1
+..
+.de ro
+.af % i
+..
+.de ar
+.af % 1
+..

@@ -1,0 +1,88 @@
+.pa 1
+.he '3/15/72''CORE (V)'
+.ti 0
+NAME		format of core image
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	Three conditions cause UNIX
+to write out a core image of an executing program:
+the program generates an unexpected trap
+(by a bus error or illegal instruction);
+the user sends a "quit" signal
+(which has not been turned off by the program);
+a trap is simulated by the floating point simulator.
+The core image is called "core" and is written in the current
+working directory (provided it can be; normal
+access controls apply).
+
+The size and structure of the core image file
+depend to some extent on which system is involved.
+In general there is a 512-byte area
+at the end which contains the system's per-process
+data for that process.
+The remainder represents the actual contents of
+the user's core area when the core image
+was written.
+In the current system,
+this area is variable in size in that only the locations
+from user 0 to the program break, plus the stack, is
+dumped.
+
+When any trap which is not an I/O interrupt occurs,
+all the useful registers are stored on the stack.
+After all the registers have been stored,
+the contents of sp__ are placed in the first cell
+of the user area;
+this cell is called u.sp____.
+Therefore, within the core image proper,
+there is an area which contains the following registers
+in the following order (increasing addresses):
+.sp
+.nf
+(u.sp)->sc
+	mq
+	ac
+	r5
+	r4
+	r3
+	r2
+	r1
+	r0
+	pc (at time of fault)
+	processor status (at time of fault)
+.fi
+.sp
+The last two are stored by the hardware.
+it follows that the contents of sp__ at the time of the faul
+were (u.sp) plus 22(10).
+
+The actual location of this data depends on which system
+is being used.
+In the current system, which has relocation and protection
+hardware, the stack discussed above is the system stack,
+and is kept in the per-user area;
+in older systems,
+there is only one stack, and it is located in the
+user's core area.
+
+In general the debugger
+db(I) should
+be used to deal with core images.
+
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

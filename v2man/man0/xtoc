@@ -1,0 +1,172 @@
+:(I): place label
+acct(I): get connect-time accounting  
+ar(I): archive (combine) files
+as(I): assembler
+bas(I): BASIC dialect
+cat(I): concatenate (or print) files
+cc(I): compile C program
+chdir(I): change working directory
+check(I): check consistency of file system
+chmod(I): change access mode of files
+chown(I): change owner of files
+cmp(I): compare file contents
+cp(I): copy file
+date(I): get date and time of day
+db(I): symbolic debugger
+dc(I): desk calculator
+df(I): find free disk space
+dpd(I): spawn data-phone daemon
+ds(I): verify directory hierarchy
+dsw(I): delete files interactively
+du(I): find disk usage
+echo(I): print command arguments
+ed(I): text editor
+exit(I): end command sequence
+fc(I): compile Fortran program
+fed(I): form-letter editor
+form(I): generate form letter
+goto(I): command transfer
+if(I): conditional command
+istat(I): file status by i-number
+ld(I): link editor (loader)
+ln(I): link to file
+login(I): log on to system
+ls(I): list contents of directory
+mail(I): send mail to another user
+man(I): run off manual section
+mesg(I): permit or deny messages
+mkdir(I): create directory
+mount(I): mount removable file system
+mt(I): save/restore files on magtape
+mv(I): move or rename file
+m6(I): macroprocessor
+nm(I): print namelist
+nroff(I): format text for printing
+od(I): octal dump of file
+opr(I): print file off-line
+ov(I): page overlay file print
+pr(I): print file with headings
+rew(I): rewind DECtape
+rm(I): remove (delete) file
+rmdir(I): remove (delete) directory
+roff(I): format text for printing
+salv(I): repair damaged file system
+sh(I): command interpreter
+sort(I): sort ASCII file
+stat(I): get file status
+strip(I): remove symbols, relocation bits
+stty(I): set typewriter modes
+su(I): become super-user
+sum(I): sum file
+tacct(I): connect-time accounting
+tap(I): manipulate DECtape
+tm(I): get time information
+tss(I): communicate with MH-TSS (GCOS)
+tty(I): find name of terminal
+type(I): print file page-by-page
+umount(I): dismount removable file system
+un(I): find undefined symbols
+wc(I): get (English) word count
+who(I): who is on the system
+write(I): write to another user
+break(II): set program break
+cemt(II): catch EMT traps
+chdir(II): change working directory
+chmod(II): change mode of file
+chown(II): change owner of file
+close(II): close open file
+creat(II): create file
+exec(II): execute program file
+exit(II): terminate execution
+fork(II): create new process
+fstat(II): status of open file
+getuid(II): get user ID
+gtty(II): get typewriter mode
+hog(II): set low-priority status
+ilgins(II): catch illegal instruction trap
+intr(II): catch or inhibit interrupts
+link(II): link to file
+kill(II): destroy process
+makdir(II): create directory
+mdate(II): set date modified of file
+mount(II): mount file system
+open(II): open file
+quit(II): catch or inhibit quits
+read(II): read file
+rele(II): release processor
+seek(II): move read or write pointer
+setuid(II): set user ID
+sleep(II): delay execution
+stat(II): get file status
+stime(II): set system time
+stty(II): set mode of typewriter
+sync(II): assure synchronization
+tell(II): find read or write pointer
+time(II): get time of year
+umount(II): dismount file system
+unlink(II): remove (delete) file
+wait(II): wait for process
+write(II): write file
+atan(III): arctangent
+atof(III): convert ASCII to floating
+atoi(III): convert ASCII to integer
+const(III): floating-point constants
+ctime(III): convert time to ASCII
+exp(III): exponential function
+fptrap(III): floating-point simulator
+ftoa(III): convert floating to ASCII
+gerts(III): communicate with GCOS
+getc(III): get character
+hypot(III): compute hypotenuse
+itoa(III): convert integer to ASCII
+log(III): logarithm base e
+mesg(III): print string on typewriter
+nlist(III): read name list
+ptime(III): print time
+putc(III): write character or word
+qsort(III): quicker sort
+salloc(III): storage allocator
+sin(III): sine, cosine
+sqrt(III): square root
+switch(III): transfer depending on value
+dn0(IV): 801 ACU
+dp0(IV): 201 Dataphone
+lpr(IV): line printer
+mem(IV): core memory
+mt0	 magtape
+ppt(IV): punched paper tape
+rf0(IV): RF disk
+rk0(IV): RK disk
+rp0(IV): RP disk
+tap0(IV): DECtape
+tty(IV): console typewriter
+tty0(IV): remote typewriter
+a.out(V): assembler and loader output
+archive(V): archive file
+core(V): core image file
+directory(V): directory format
+file system(V): file system format
+ident(V): GCOS ident cards
+passwd(V): password file
+tap(V): DECtape format
+uids(V): map names to user ID's
+utmp(V): logged-in user information
+wtmp(V): accounting files
+basic(VI): DEC supplied BASIC
+bc(VI): compile B program
+bj(VI): the game of blackjack
+cal(VI): print calender
+chash(VI): prepare symbol table
+cref(VI): cross reference table
+das(VI): disassembler
+dli(VI): load DEC binary paper tapes
+dpt(VI): read DEC ASCII paper tapes
+moo(VI): the game of MOO
+ptx(VI): permuted index
+tmg(VI): compile tmgl program
+ttt(VI): the game of tic-tac-toe
+ascii(VII): map of ASCII
+bproc(VII): boot procedure
+getty(VII): adapt to typewriter
+glob(VII): argument expander
+init(VII): initializer process

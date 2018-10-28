@@ -1,9 +1,9 @@
-# UNIX V3-V6 manual
+# UNIX V2-V6 manual
 
 This is a collection of programs and scripts to freshly typeset the old UNIX manuals.
 Everything is done from Plan 9.
 
-I reconstructed the n/troff sources of the V5 manual from the scan.
+I reconstructed the troff sources of the V5 manual from the scan.
 Unfortunately the pages for
 *glob*, *mkfs*, *mknod*, *reloc*, *restor*, *sa*, *su* (all VIII)
 are missing in that scan.
@@ -15,13 +15,21 @@ earlier than their V4 and V6 counterparts. These are:
 *csw*, *fstat*, *link*, *nice*, *seek*, *setgid*, *setuid*, *sleep*, *sync*, *time*, *write* (all II).
 *read* (II) is not dated earlier but the content seems to be earlier than V4.
 
+I also reconstructed the roff sources of the V2 from a scan.
+Missing is only *nroff*(I).
+
 # OUTPUT
 
-The V3-V6 manuals are nroff'ed to html.
+The V2-V6 manuals are nroff'ed to html.
+V2 and V3 also have the intro pages
+and are currently paginated.
+V4-V6 have only the manual pages themselves,
+not paginated.
 
 The V4-V6 manuals are troff'ed to pdf.
 
 You can find the output here:
+[v2](http://squoze.net/UNIX/v2man/)
 [v3](http://squoze.net/UNIX/v3man/)
 [v4](http://squoze.net/UNIX/v4man/)
 [v5](http://squoze.net/UNIX/v5man/)
@@ -30,15 +38,13 @@ You can find the output here:
 # BUILDING
 
 The build process is a bit ugly...but it works.
-*nroffv3* - *nroffv6* build html versions of the manual.
+*nroffv2* - *nroffv6* build html versions of the manual,
+they are mostly very identical.
 First they are processed into something that would
 display correctly on a Teletype 37
 and then converted to html by two little programs:
 37map to convert the special characters of the tty 37 to unicode,
 37html to convert everything to html.
-
-For the nroff output I made changes to *naa* so it doesn't
-paginate and called the new files *naa_x*.
 
 *mktoc* is used for V4-V6 to generate the table of contents,
 it's basically a translation of the old *tocrc* to rc.
@@ -48,9 +54,8 @@ and to generate one file with the complete manual.
 
 A few helper programs and scripts are:
 *ptx* is a port of the old *ptx* to ANSI C.
-*fixli* and *fixta* convert some semantics of
-told troff to plan 9 troff (.li and .ta requests).
-*fixv3* - *fixv6* are used to fix the input somewhat.
+*oldtroff* simulates some behaviour of the old troff in Plan 9 troff.
+*fixv2* - *fixv6* are used to fix the input somewhat.
 
 # BUGS
 
@@ -75,4 +80,20 @@ This can be observed in (V5)
 *dump*, *lpd* (VIII).
 
 I will have to look into the troff source of different versions
-(v7 and plan 9) and compare how things are done.
+(v7 and Plan 9) and compare how things are done.
+
+As for V2 (this probably applies to V3 as well),
+there is a problem with overstruck characters
+in ed(I), stty(II), tty0(IV).
+Also hyphenated underlined words look terrible
+(goto(I), mount(II)).
+
+# TODO
+
+- reconstruct the V1 manual
+
+- produce both paginated and unpaginated nroff versions
+
+- convert the tty 37 nroff output to postscript (and pdf)
+
+- try to get more accurate results

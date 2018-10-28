@@ -20,7 +20,6 @@
 .xx "echo" "echo arguments "
 .xx "ed" "editor"
 .xx "exit" "terminate command file"
-.xx "factor" "discover prime factors of a number"
 .xx "fc" "fortran compiler"
 .xx "fed" "edit associative memory for form letter"
 .xx "file" "determine format of file"

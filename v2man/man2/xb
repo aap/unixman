@@ -1,0 +1,38 @@
+NAME		break  --  set program break
+NAME		cemt  --  catch emt traps
+NAME		chdir  --  change working directory
+NAME		chmod  --  change mode of file
+NAME		chown  --  change owner of file
+NAME		close  --  close a file
+NAME		creat  --  create a new file
+NAME		exec  --  execute a file
+NAME		exit  --  terminate process
+NAME		fork  --  spawn new process
+NAME		fstat  --  get status of open file
+NAME		getuid  --  get user identification
+NAME		gtty  --  get typewriter status
+NAME		hog -- set program in low priority
+NAME		ilgins  --  catch illegal instruction trap
+NAME		intr  --  set interrupt handling
+NAME		kill -- destroy process
+NAME		link -- link to a file
+NAME		makdir  --  make a directory
+NAME		mdate  --  set modified date on file
+NAME		mount  --  mount file system
+NAME		open  --  open for reading or writing
+NAME		quit  --  turn off quit signal
+NAME		read  --  read from file
+NAME		rele  --  release processor
+NAME		seek  --  move read/write pointer
+NAME		setuid  --  set process ID
+NAME		sleep -- stop execution for interval
+NAME		stat  --  get file status
+NAME		stime  --  set time
+NAME		stty  --  set mode of typewriter
+NAME		sync -- update super-block
+NAME		tell -- get file pointer
+NAME		time  --  get time of year
+NAME		umount  -- dismount file system
+NAME		unlink  --  remove directory entry
+NAME		wait  --  wait for process to die
+NAME		write  --  write on file

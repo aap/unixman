@@ -1,0 +1,33 @@
+.pa 1
+.he '3/15/72''TIME (II)'
+.ti 0
+NAME		time  --  get time of year
+.sp
+.ti 0
+SYNOPSIS	sys time  / time = 13.
+.br
+(time AC-MQ)
+.sp
+.ti 0
+DESCRIPTION	time____
+returns the time since 00:00:00, Jan. 1, 1971, measured
+in sixtieths of a second.
+The high order word is in the AC register and the low order
+is in the MQ.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	date(I), stime(II)
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		The chronological-minded user
+will note that 2**32 sixtieths of a second is only
+about 2.5 years.
+.sp
+.ti 0
+OWNER		ken, dmr

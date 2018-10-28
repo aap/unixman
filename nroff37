@@ -10,7 +10,11 @@ fn unesc {
 	s///g
 	s///g'
 }
+fn ud {
+	sed 's/8/\\u/g
+	s/9/\\d/g'
+}
 
 echo '<pre>'
-cat $* | esc | sed 's/^	/ 	/' | nroff -T37 | unesc | 37map | 37html
+cat $* | ud | esc | sed 's/^	/ 	/' | nroff -T37 | unesc | 37map | 37html
 echo '</pre>'

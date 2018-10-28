@@ -1,11 +1,7 @@
 #!/bin/rc
 
-# font names have to be uppercase
-sed 's/\\fi/\\fI/g
-s/\\fb/\\fB/g' |
-
 # something in ecvt
 sed 's/\\\(\*_/\\*_/g' |
 
-# typo in taa
+# typo? in taa
 sed 's/\\\(vb/\\\(bv/g'

@@ -1,0 +1,65 @@
+.pa 1
+.he '6/12/72''STTY (I)'
+.ti 0
+NAME		stty -- set teletype options
+.sp
+.ti 0
+SYNOPSIS	stty____ option918 ...
+.sp
+.ti 0
+DESCRIPTION	Stty____
+will set certain I/O options on the current output teletype.
+The option strings are
+selected from the following set:
+
+.in +3
+.nf
+even____	allow even parity.
+-even_____	disallow even parity.
+odd___	allow odd parity
+-odd____	disallow odd parity
+raw___	raw input (no erase/kill)
+-canon______		"
+-raw____	negate raw mode (erase/kill)
+canon_____		"
+cr__	allow (and echo) cr for lf.
+-nl___		"
+nl__	negate cr mode.
+-cr___		"
+echo____	echo back every character typed.
+full____		"
+-half_____		"
+half____	do not echo characters as typed.
+-echo_____		"
+-full_____		"
+lcase_____	map upper case to lower case
+-ucase______		"
+ucase_____	do not map case
+-lcase______		"
+space_____	map tabs into spaces
+-tab____		"
+tab___	do not map tabs
+-space______		"
+delay_____	calculate cr and tab delays.
+-delay______	no cr/tab delays
+ebcdic______	ebcdic ball conversion (2741 only)
+-corres_______		"
+corres______	correspondence ball conversion (2741 only)
+-ebcdic_______		"
+.in -3
+.sp
+.fi
+.ti 0
+FILES		standard output.
+.sp
+.ti 0
+SEE ALSO	stty(II)
+.sp
+.ti 0
+DIAGNOSTICS	"Bad options"
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		jfo

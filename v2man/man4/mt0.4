@@ -1,0 +1,47 @@
+.pa 1
+.he '6/12/72''TM0 (IV)'
+.ti 0
+NAME		mt0 -- magtape
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	mt0___
+is the DEC TU10/TM11 magtape.
+When opened for reading or writing,
+the magtape is rewound.
+A tape consists of a
+series of 256 word records terminated by an
+end-of-file.
+Reading less than 256 words (512 bytes)
+causes the rest of a record to be ignored.
+Writing less than a record causes
+null padding to 512 bytes.
+When the magtape is closed
+after writing,
+an end-of-file is written.
+.sp
+Seek has no effect on the magtape.
+The magtape can only be opened once at
+any instant.
+.sp
+.ti 0
+FILES		found in /dev
+.sp
+.ti 0
+SEE ALSO	mt(I)
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Seek
+should work on the magtape.
+Also, a provision of having the tape open for
+reading and writing should exist.
+A multi-file and multi-reel facility should
+be incorporated.
+.sp
+.ti 0
+OWNER		ken, dmr

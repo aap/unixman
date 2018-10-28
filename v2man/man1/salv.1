@@ -1,0 +1,54 @@
+.pa 1
+.he '3/15/72''SALV (I)'
+.ti 0
+NAME		salv -- file system salvage
+.sp
+.ti 0
+SYNOPSIS	/etc/salv_________
+.sp
+.ti 0
+DESCRIPTION	salv____
+will reconstruct the file system /dev/rk0
+to a consistent state.
+This is the first step in putting things
+together after a bad crash.
+Salv performs the following functions:
+.sp
+.in +3
+A valid free list is constructed.
+.sp
+All bad pointers in the file system are zeroed.
+.sp
+All duplicate pointers to the same block
+are resolved by changing one of the pointers
+to point at a new block containing a copy of the data.
+.in -3
+.sp
+After a salv, a warm boot must be performed instantly
+to effect the change made.
+(Because the salv works on the disk copy of the file system
+super-block, and the core copy is unaffected.)
+.sp
+After a salv, files may be safely created
+and removed without causing
+more trouble.
+However, it is more likely than not
+that directories are corrupted as well,
+so a ds__ should be performed.
+.sp
+.in 16
+.ti 0
+FILES		/dev/rk0
+.sp
+.ti 0
+SEE ALSO	check(I), ds(I)
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		The file system to be salvaged
+should be an argument.
+.sp
+.ti 0
+OWNER		ken

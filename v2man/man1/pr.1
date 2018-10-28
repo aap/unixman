@@ -1,0 +1,41 @@
+.pa 1
+.he '3/15/72''PR (I)'
+.ti 0
+NAME		pr  --  print file
+.sp
+.ti 0
+SYNOPSIS	pr__ [ -lcm_____ ] name918 ...
+.sp
+.ti 0
+DESCRIPTION	pr__
+produces a printed listing of one or more files.
+The output is separated into pages headed by
+the name of the file, a date, and the page number.
+.sp
+The optional flag -l__ causes each page to contain
+78 lines instead of the standard 66
+to accomodate legal size paper.
+.sp
+The optional flag -c__ (current date) and
+-m__ (modified date) specify which date will head
+all subsequent files.
+-m__ is default.
+.sp
+Interconsole messages via write_____(I) are
+forbidden during a pr__.
+.sp
+.ti 0
+FILES		/dev/tty?
+to suspend messages.
+.sp
+.ti 0
+SEE ALSO	cat(I), cp(I), mesg(I)
+.sp
+.ti 0
+DIAGNOSTICS	-- (files not found are ignored)
+.sp
+.ti 0
+BUGS		none
+.sp
+.ti 0
+OWNER		ken, dmr

@@ -1,0 +1,43 @@
+.pa 1
+.he '3/15/72''OPR (I)'
+.ti 0
+NAME		opr -- off line print
+.sp
+.ti 0
+SYNOPSIS	opr___ file918 ...
+.sp
+.ti 0
+DESCRIPTION	opr___
+will arrange to have the
+201 data phone daemon submit a job to the
+Honeywell 6070 to print the file arguments.
+Normally, each file is printed in the state it is found
+when the data phone daemon reads it.
+If a particular file argument is preceded by +_
+then opr___ will make a copy for the daemon to print.
+If the file argument is preceded by -_
+then opr will unlink the file.
+.sp
+.ti 0
+FILES		/usr/dpd/*	spool area
+.br
+/etc/ident	personal ident cards
+.br
+/etc/dpd	daemon
+.sp
+.ti 0
+SEE ALSO	dpd(I), ident(V)
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Since all but the
++_ option in opr___ is implemented with links_____,
+one cannot use these options for files not in /usr____.
+.sp
+opr___ should recognize +_ and -_ alone
+and apply them to all subsequent arguments.
+.sp
+.ti 0
+OWNER		ken

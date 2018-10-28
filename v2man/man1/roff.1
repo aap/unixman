@@ -1,0 +1,51 @@
+.pa 1
+.he '6/12/72''ROFF (I)'
+.ti 0
+NAME		roff  --  format text
+.sp
+.ti 0
+.nf
+SYNOPSIS	roff____ [ +_number1 ] [ -_number2 ] [ -stop_____ ] name\d1\u ...
+.fi
+.sp
+.ti 0
+DESCRIPTION	roff____
+formats text according to control lines embedded
+in the text in file918, ... .
+Encountering a nonexistent file terminates printing.
+The optional argument "+_number1" causes printing
+to begin at the first page
+numbered number1;
+the optional argument "-_number2" stops printing
+after the page numbered number2.
+The optional argument "-stop_____" or
+"-s__" causes printing to stop before each page
+including the first
+to allow paper manipulation;
+printing is resumed upon
+receipt of an interrupt signal.
+An interrupt signal received during printing terminates all
+printing.
+Incoming interconsole messages are turned off during printing,
+and the original message acceptance state is restored upon
+termination.
+.sp
+roff____ is described in a separate publication [1].
+.sp
+.ti 0
+FILES		/etc/suftab	suffix hyphenation tables
+.br
+/tmp/rtm?	temporary
+.br
+.sp
+.ti 0
+SEE ALSO	[1] (See J. F. Ossanna)
+.sp
+.ti 0
+DIAGNOSTICS	none
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		jfo

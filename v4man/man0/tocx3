@@ -7,6 +7,7 @@
 .xx "exp" "exponential function"
 .xx "fptrap" "floating point interpreter"
 .xx "gerts" "Gerts communication over 201"
+.xx "getarg" "get command arguments from Fortran"
 .xx "getc" "buffered input"
 .xx "getchar" "read character"
 .xx "getpw" "get name from UID"

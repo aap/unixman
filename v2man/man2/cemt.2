@@ -1,0 +1,43 @@
+.pa 1
+.he '3/15/72''CEMT (II)'
+.ti 0
+NAME		cemt  --  catch emt traps
+.sp
+.ti 0
+.nf
+SYNOPSIS	sys cemt; arg  / cemt = 29.
+.fi
+.sp
+.ti 0
+DESCRIPTION	This call
+allows one to catch traps resulting from
+the emt___ instruction.
+Arg___ is a location within the program; emt___ traps
+are sent to that location.
+The normal effect of emt___ traps may be restored by giving
+an arg___ equal to 0.
+.sp
+Prior to the use of this call,
+the result of an emt___ instruction
+is a simulated rts___ instruction.
+The operand field is interpreted as a register,
+and an rts___ instruction is simulated for that register
+(after verifying that various register have appropriate values).
+This feature is useful for debugging, since the most
+dangerous program bugs usually involve an rts___
+with bad data on the stack or in a register.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

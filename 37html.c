@@ -14,6 +14,7 @@ Biobuf *bin, *bout;
 long chars[1024];
 char flags[1024];
 int lp;
+int linepos;
 
 /* This is not a proper Teletype 37 emulator.
  * It just does what the manual actually uses. */
@@ -22,10 +23,8 @@ readline(void)
 {
 	long c;
 	int esc;
-	int linepos;
 
 	esc = 0;
-	linepos = 0;
 	lp = 0;
 	memset(chars, 0, sizeof(chars));
 	memset(flags, 0, sizeof(flags));
@@ -33,7 +32,7 @@ readline(void)
 		if(c == 033){
 			esc = 1;
 			continue;
-		}	
+		}
 		if(esc){
 			switch(c){
 			case '1': /* htab set */	break;
@@ -45,9 +44,11 @@ readline(void)
 			case '7': /* rev line space */	break;
 			case '8': /* half rev line space */
 				linepos--;
+				linepos %= 2;
 				break;
 			case '9': /* half line space */
 				linepos++;
+				linepos %= 2;
 				break;
 			case ':': /* full duplex */	break;
 			case ';': /* half duplex */	break;
@@ -55,8 +56,11 @@ readline(void)
 			esc = 0;
 			continue;
 		}
-		if(c == '\n')
+		if(c == '\n'){
+			linepos += 2;
+			linepos %= 2;
 			break;
+		}
 		switch(c){
 		case '\r':
 			lp = 0;
@@ -68,7 +72,11 @@ readline(void)
 		default:
 			if(c == '_' && chars[lp])
 				flags[lp++] |= Under;
-			else{
+			else if(chars[lp] == '_'){
+				flags[lp] |= Under;
+				chars[lp] = c;
+				lp++;
+			}else{
 				if(linepos < 0)
 					flags[lp] |= Super;
 				else if(linepos > 0)
@@ -86,18 +94,6 @@ int sub, sup, u;
 void
 handletags(int f)
 {
-	if(f & Sub && !sub){
-		Bprint(bout, "<sub>");
-		sub = 1;
-	}
-	if(f & Super && !sup){
-		Bprint(bout, "<sup>");
-		sup = 1;
-	}
-	if(f & Under && !u){
-		Bprint(bout, "<u>");
-		u = 1;
-	}
 	if(!(f & Under) && u){
 		Bprint(bout, "</u>");
 		u = 0;
@@ -109,6 +105,18 @@ handletags(int f)
 	if(!(f & Sub) && sub){
 		Bprint(bout, "</sub>");
 		sub = 0;
+	}
+	if(f & Sub && !sub){
+		Bprint(bout, "<sub>");
+		sub = 1;
+	}
+	if(f & Super && !sup){
+		Bprint(bout, "<sup>");
+		sup = 1;
+	}
+	if(f & Under && !u){
+		Bprint(bout, "<u>");
+		u = 1;
 	}
 }
 

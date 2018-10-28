@@ -1,0 +1,37 @@
+.pa 1
+.he '3/15/72''OD (I)'
+.ti 0
+NAME		od  --  octal dump
+.sp
+.ti 0
+SYNOPSIS	od__ name [ origin ]
+.sp
+.ti 0
+DESCRIPTION	od__
+dumps a file in octal,
+eight words per line
+with the origin of the line on the left.
+If an octal origin is given it is truncated to 0 mod 16
+and dumping starts from there,
+otherwise from 0.
+Printing continues until an end-of-file condition
+or until halted by sending an interrupt signal.
+.sp
+Since od__ does not seek,
+but reads to the desired starting point,
+od__ (rather than db__) should be used to dump special files.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	db(I)
+.sp
+.ti 0
+DIAGNOSTICS	"?"
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

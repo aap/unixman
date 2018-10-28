@@ -1,8 +1,19 @@
 #!/bin/rc
 
+rfork ne
+
 v=v3man
 
 mkdir -p html_$v
+
+ap=`{pwd}^/$v
+hp=`{pwd}^/html_$v
+owd=`{pwd}
+bind -a $owd /bin
+
+cd $ap/man0
+cat $owd^/roffemu intro toc | $owd^/nroff37 > $hp/man0.html
+cd $owd
 
 for(s in $v/man[1-8]){
 	mkdir -p html_$s
@@ -10,6 +21,6 @@ for(s in $v/man[1-8]){
 	for(p in $s/*){
 		h=html_`{echo $p | sed 's/\.[1-8]$/.html/'}
 		echo $h
-		cat $v/man0/aa $p | fixv3 | fixli | nroff37 >$h
+		cat roffemu $v/man0/aa_x $p | fixv3 | fixli | nroff37 >$h
 	}
 }

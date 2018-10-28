@@ -1,0 +1,37 @@
+.pa 1
+.he '3/15/72''SORT (I)'
+.ti 0
+NAME		sort -- sort a file
+.sp
+.ti 0
+SYNOPSIS	sort____ input output
+.sp
+.ti 0
+DESCRIPTION	sort____
+will sort the input file and write the
+sorted file on the output file.
+The sort is line-by-line in increasing ASCII collating sequence.
+
+Space required is 6*number-of-lines in bytes.
+.sp
+.ti 0
+FILES		/tmp/stm?
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Sort
+does not put a maximum on the size of file that it sorts.
+Thus a bus error will occur if
+too large an input file is supplied.
+.sp
+The input is copied to a temporary file.
+Thus the maximum file that can be sorted
+is the maximum non-special file (currently 64K bytes.)
+.sp
+.in 0
+OWNER		dmr, ken

@@ -1,0 +1,11 @@
+NAME		a.out  --   assembler and link editor output
+NAME		archive (library) file format
+NAME		format of core image
+NAME		format of directories
+NAME		format of file system
+NAME		ident -- IDENT card file
+NAME		passwd  --  password file
+NAME		tap -- DEC/mag tape formats
+NAME		/etc/uids  --  map user names to user IDs
+NAME		/tmp/utmp  -- user information
+NAME		/tmp/wtmp  -- user login history

@@ -1,0 +1,143 @@
+.pa 1
+.he '3/15/72''DC (I)'
+.ti 0
+NAME		dc -- desk calculator
+.sp
+.ti 0
+SYNOPSIS	dc__ [file]
+.sp
+.ti 0
+DESCRIPTION	dc__
+is an arbitrary precision integer arithmetic package.
+The overall structure of dc is
+a stacking (reverse Polish) calculator.
+The following constructions are recognized
+by the calculator:
+.sp
+.in +3
+.ti -3
+number
+.br
+The value of the number is pushed on the stack.
+If the number starts with a zero,
+it is taken to be octal,
+otherwise it is decimal.
+.sp
+.ti -3
++_ -_ *_ /_ %_
+.br
+The top two values on the stack are added (+_),
+subtracted (-_), multiplied (*_), divided (/_),
+or remaindered (%_).
+The two entries are popped off the stack;
+the result is pushed on the stack in their place.
+.sp
+.ti -3
+s_x
+.br
+The top of the stack is popped and stored into
+a register named x, where x may be any character.
+.sp
+.ti -3
+l_x
+.br
+The value in register x is pushed on the stack.
+The register x is not altered.
+.sp
+.ti -3
+d_
+.br
+The top value on the stack is pushed on the stack.
+Thus the top value is duplicated.
+.sp
+.ti -3
+p_
+.br
+The top value on the stack is printed in decimal.
+The top value remains unchanged.
+.sp
+.ti -3
+f_
+.br
+All values on the stack are
+popped off and printed in decimal.
+.sp
+.ti -3
+.ul 1
+q
+.br
+exits the program.
+.sp
+.ti -3
+.ul
+x
+.br
+treats the top element of the stack as a character string
+and executes it as a string of dc commands.
+.sp
+.ti -3
+!_
+.br
+interprets the rest of the line as a UNIX command.
+.sp
+.ti -3
+r_
+.br
+All values on the stack are popped.
+.sp
+.ti -3
+n_k
+.sp
+A scale factor of 10\un\d is set for all subsequent
+multiplication and division.
+.sp
+.ti -3
+new-line
+.ti -3
+space
+.br
+ignored.
+.br
+.sp
+.in -3
+An example to 
+calculate the monthly, weekly and
+hourly rates for a $10,000/year salary.
+.sp
+.nf
+.in +3
+10000
+100*	(now in cents)
+dsa	(non-destructive store)
+12/	(pennies per month)
+la52/	(pennies per week)
+d10*	(deci-pennies per week)
+375/	(pennies per hour)
+f	(print all results)
+(3) 512
+(2) 19230
+(1) 83333
+.sp
+.fi
+.in -3
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	(x) ? for unrecognized character x.
+.br
+(x) ? for not enough elements on the stack to do what was asked.
+.br
+"Out of space" when the free list is exhausted.
+.sp
+.ti 0
+BUGS		f is not implemented
+.br
+% is not implemented
+.sp
+.ti 0
+OWNER		rhm
+

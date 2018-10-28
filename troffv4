@@ -1,17 +1,18 @@
 #!/bin/rc
 
+rfork ne
+
 v=v4man
 
 mkdir -p pdf_$v
 
-
 ap=`{pwd}^/$v
 pp=`{pwd}^/pdf_$v
 owd=`{pwd}
+bind -a $owd /bin
 
 cd $ap/man0/
-{echo '.af % i'; cat $ap/man0/^(intro basinf toc ptx)} | troff |
-	lp -d stdout | ps2pdf >$pp/man0.pdf
+cat intro basinf toc ptx | oldtroff >$pp/man0.pdf
 cd $owd
 
 for(s in $v/man[1-8x]){
@@ -21,6 +22,6 @@ for(s in $v/man[1-8x]){
 		h=pdf_`{echo $p | sed 's/\.[1-8]$//
 s/$/.pdf/'}
 		echo $h
-		cat page $v/man0/taa $p | fixv4 | fixli | fixta | troff | lp -d stdout | ps2pdf >$h
+		cat page $v/man0/taa $p | fixv4 | oldtroff >$h
 	}
 }

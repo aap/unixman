@@ -1,0 +1,33 @@
+.pa 1
+.he '3/15/72''SIN, COS (III)'
+.ti 0
+NAME		sin, cos -- sine cosine
+.sp
+.ti 0
+SYNOPSIS	jsr	r5,sin (cos)
+.sp
+.ti 0
+DESCRIPTION	The
+sine (cosine) of fr0 (radians)
+is returned in fr0.
+The floating point simulation should be active
+in either floating or double mode,
+but in single precision integer mode.
+All floating registers are used.
+.sp
+.ti 0
+FILES		kept in /usr/lib/liba.a
+.sp
+.ti 0
+SEE ALSO	fptrap(III)
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Size of the argument
+should be checked to make sure the result is meaningful.
+.sp
+.ti 0
+OWNER		ken, dmr
+

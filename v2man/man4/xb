@@ -1,0 +1,12 @@
+NAME		dn0 -- dn-11 ACU interface
+NAME		dp0 -- dp-11 201 data-phone interface
+NAME		/dev/lpr -- line printer
+NAME		mem  --  core memory
+NAME		mt0 -- magtape
+NAME		ppt  --  punched paper tape
+NAME		rf0  --  RF11-RS11 fixed-head disk file
+NAME		rk0  --  RK03 (or RK05) disk
+NAME		rp0  --  RP11/RP02 disk
+NAME		tap0 ... tap7
+NAME		tty -- console typewriter
+NAME		tty0 ... tty7 -- communications interfaces
