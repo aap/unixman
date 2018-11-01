@@ -1,0 +1,39 @@
+.pa 1
+.he '11/3/71''CTIME (III)'
+.ti 0
+NAME		ctime  --  convert date and time to ASCII
+.sp
+.ti 0
+SYNOPSIS	(move time to AC-MQ)
+.br
+mov	$buffer,r0
+.br
+jsr	pc,ctime
+.br
+.sp
+.ti 0
+DESCRIPTION	The output
+is 15 characters long.
+The time has the format
+.sp
+     Oct  9 17:32:24
+.sp
+The input time is in the AC and MQ registers in the form
+returned by sys___ time____.
+.sp
+.ti 0
+FILES		kept in /etc/liba.a
+.sp
+.ti 0
+SEE ALSO	ptime, to print time; sys time
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		The time is not taken modulo 1 year.
+(Jan 1 comes out Dec 32.) Also,
+the clock period is only a couple of years.
+.sp
+.ti 0
+OWNER		dmr

@@ -1,0 +1,36 @@
+.pa 1
+.he '11/3/71''SYS ILGINS (II)'
+.ti 0
+NAME		ilgins  --  catch illegal instruction trap
+.sp
+.ti 0
+SYNOPSIS	sys ilgins; arg / ilgins = 33.; not in assembler
+.sp
+.ti 0
+DESCRIPTION	ilgins______
+allows a program to catch illegal instruction traps.
+If arg___
+is zero, the normal instruction trap handling is done:
+the process is terminated and a core image is produced.
+If arg___
+is a location within the program, control
+is passed to arg___ when the trap occurs.
+.sp
+This call is used to implement the floating point simulator,
+which catches and interprets 11/45 floating point
+instructions.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	fptrap______, the floating point package
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

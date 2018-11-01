@@ -1,0 +1,35 @@
+.pa 1
+.he '11/3/71''LBPPT (I)'
+.ti 0
+NAME		lbppt -- load binary paper tape
+.sp
+.ti 0
+SYNOPSIS	lbppt_____ output [ input ]
+.sp
+.ti 0
+DESCRIPTION	lbppt_____
+loads a paper tape in standard UNIX binary paper tape format.
+It is used to bring files to a UNIX installation.
+Currently there is a GECOS program to prepare a GECOS
+file in binary paper tape format.
+.sp
+If the input file is specified, the character stream from that
+input is expected to be in UNIX binary paper tape format.
+If it is not present, /dev/ppt is assumed.
+The input stream is interpreted, checksummed,
+and copied to the output file.
+.sp
+.ti 0
+FILES		/dev/ppt
+.sp
+.ti 0
+SEE ALSO	dbppt, bppt format
+.sp
+.ti 0
+DIAGNOSTICS	"checksum"; "usage: "; "read error".
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken

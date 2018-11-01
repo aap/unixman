@@ -1,0 +1,29 @@
+.pa 1
+.he '11/3/71''REW (I)'
+.ti 0
+NAME		rew  --  rewind tape
+.sp
+.ti 0
+SYNOPSIS	rew ___ [ digit ]
+.sp
+.ti 0
+DESCRIPTION	rew___
+rewinds DECtape drives.  The digit is the logical
+tape number, and should range from 0 to 7.
+A missing digit indicates drive 0.
+.sp
+.ti 0
+FILES		/dev/tap0, ..., /dev/tap7
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	"?" if there is no tape mounted on the indicated
+drive or if the file cannot be opened.
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

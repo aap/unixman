@@ -12,7 +12,7 @@ owd=`{pwd}
 bind -a $owd /bin
 
 cd $ap/man0
-cat $owd^/roffemu intro toc | $owd^/nroff37 > $hp/man0.html
+cat $owd^/roffemu_x intro toc | $owd^/nroff37 > $hp/man0.html
 cd $owd
 
 for(s in $v/man[1-7]){
@@ -21,6 +21,6 @@ for(s in $v/man[1-7]){
 	for(p in $s/*){
 		h=html_`{echo $p | sed 's/\.[1-8]$/.html/'}
 		echo $h
-		cat roffemu $v/man0/aa_x $p | fixv2 | fixli | nroff37 >$h
+		cat roffemu_x $v/man0/aa_x $p | fixv2 | fixli | nroff37 >$h
 	}
 }

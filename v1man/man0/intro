@@ -1,0 +1,187 @@
+.na
+.bl  15
+.tr |
+.in 0
+.ce
+UNIX PROGRAMMER'S MANUAL
+
+
+
+
+
+.ce 3
+K. Thompson
+
+D. M. Ritchie
+
+
+
+
+.ce
+November 3, 1971
+.bp
+.fo ''- % -''
+.ro
+.bl 2
+.ce
+INTRODUCTION
+
+
+This manual gives complete descriptions of all the publicly available
+features of UNIX.
+It provides neither a general
+overview (see "The UNIX Time-sharing System" for that)
+nor details of the implementation of the system (which
+remain to be disclosed).
+
+Within the area it surveys, this manual attempts
+to be as complete and timely as possible.
+A conscious
+decision was made to describe each program
+in exactly the state it was in at the time
+its manual section
+was prepared.
+In particular, the
+desire to describe something as it should be, not as it is,
+was resisted.
+Inevitably, this means that
+many sections will soon be out of date.
+(The rate of
+change of the system is so great that a dismayingly
+large number of early sections
+had to be modified while the rest were being written.
+The unbounded effort required to stay up-to-date
+is best indicated by the fact that several of the programs
+described were written specifically to aid in preparation
+of this manual!)
+
+This manual is divided into
+seven sections:
+
+   I.   Commands
+   II.  System calls
+   III. Subroutines
+   IV.  Special files
+   V.   File formats
+   VI.  User-maintained programs
+   VII. Miscellaneous
+
+Commands are programs intended to be invoked directly by
+the user, in contradistinction to subroutines, which are
+intended to be called by the user's programs.
+Commands generally reside in directory /bin____ (for
+bin___ary programs).  This directory is searched automatically
+by the command line interpreter.  Some programs
+classified as commands are located elsewhere; this
+fact is indicated in the appropriate sections.
+
+System calls are entries into the UNIX supervisor.
+In assembly language, they are coded with the use
+of the opcode "sys", a synonym for the
+trap____ instruction.
+
+The special files section discusses the characteristics of
+each system "file" which actually refers to an I/O device.
+
+The file formats section documents the structure of particular
+kinds of files; for example, the form of the output of the loader and
+assembler is given.  Excluded are files used by only one command,
+for example the assembler's intermediate files.
+
+User-maintained programs are not considered part
+of the UNIX system, and the principal reason for
+listing them is o indicate their existence without
+necessarily giving a complte description.
+The author should be consulted for information.
+
+The miscellaneous section gathers odds and ends.
+
+
+Each section consists of a number of independent
+entries of a page or so each.
+The name of the entry is in the upper right corner of its pages,
+its preparation date in the upper left.
+Entries within each section are
+alphabetized.
+It was thought better to avoid running page numbers,
+since it is hoped that the manual will be updated frequently.
+
+All entries have a common format.
+.sp
+.in 5
+The name____ section repeats the entry name and gives
+a very short description of its purpose.
+
+The synopsis________ summarizes the use of the
+program being described.
+A few conventions are used, particularly in the
+Commands section:
+
+.in 8
+Underlined words are considered literals, and
+are typed just as they appear.
+
+Square brackets ([]) around an argument
+indicate that the argument is optional.
+When an argument is given as "name", it always
+refers to a file name.
+
+Ellipses "..." are used to show that the previous argument-prototype
+may be repeated.
+
+A final convention is used by the commands themselves.
+An argument beginning with a minus sign "-"
+is often taken to mean some sort of flag argument
+even if it appears in a position where a file name
+could appear.  Therefore, it is unwise to have files
+whose names begin with "-".
+
+.in 5
+The description___________ section discusses in detail the subject at hand.
+
+The files_____ section gives the names of files which are
+built into the program.
+
+A see___ also____ section gives pointers to related information.
+
+A diagnostics___________
+section discusses
+the diagnostics that may be produced.
+This section tends to be as terse
+as the diagnostics themselves.
+
+The bugs____ section gives
+known bugs and sometimes deficiencies.
+Occasionally also the suggested fix is
+described.
+
+The owner_____ section gives the name of the person
+or persons to be consulted in case of difficulty.
+The rule has been that the last one to modify something
+owns it, so the owner is not necessarily the author.
+The owner's initials stand for:
+
+   ken    K. Thompson
+   dmr    D. M. Ritchie
+   jfo    J. F. Ossanna
+   rhm    R. Morris
+
+These three-character names also happen to be UNIX user ID's,
+so messages may be transmitted by the mail____ command or,
+if the addressee is logged in, by write_____.
+
+.in 0
+At the beginning of this document is a table of contents,
+organized by section and alphabetically within each section.
+There is also a permuted index derived from the table of contents.
+Within each index entry, the title
+of the writeup to which
+it refers is followed by the appropriate section number in parentheses.
+This fact is important because there is considerable
+name duplication among the sections,
+arising principally from commands which
+exist only to exercise a particular system call.
+
+
+This manual was prepared using the UNIX text
+editor ed__ and the formatting program roff____.

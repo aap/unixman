@@ -1,0 +1,176 @@
+.pa 1
+.he '11/3/71''/DEV/TTY0 ... TTY5 (IV)'
+.tr |
+.ti 0
+NAME		tty0 ... tty5 -- communications interfaces
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	These files
+refer to
+DC11 asynchronous communications interfaces.
+At the moment there are six of them, but the number is subject
+to change.
+Names for up to four others will be constructed by
+an obvious algorithm.
+
+When one of these files is opened, it causes
+the process to wait until a connection is established.
+(In practice, however, user's programs seldom open these
+files; they are opened by init____ and become a user's standard
+input and output file.)
+The very first typewriter file open in a process becomes
+the control_______ type____writer______
+for that process.  The control typewriter plays a special
+role in the handling quit or interrupt signals, as discussed
+below.
+The control typewriter is inherited by a child process during a fork____.
+
+A terminal associated with one of these files ordinarily
+operates in full-duplex mode.  Characters may be typed at any time,
+even while output is occurring, and are only lost when the
+system's character input buffers become completely
+choked, which is rare.
+
+When first opened, the interface expects the terminal to use
+15 odd-parity,
+10-bit ASCII characters per second
+and to have the new-line function.
+Finally, the system calculates delays after sending the
+code for certain functions (e.g., new-line, tab)
+on the assumption that the terminal is a Teletype model 37.
+All this is merely a long way of saying that the system
+expects to be used by a TTY 37.
+However, most of these assumptions can be changed
+by a special system call:
+in particular,
+the expected parity can be changed;
+the speed, character size, and stop bits can be changed
+(speeds available are 134.5, 150, 300, 1200 baud;
+see the DC11 manual);
+the new-line function can be simulated by a combination
+of the carriage-return and line-feed functions;
+carriage return can be translated into new-line on input;
+upper case letters can be mapped into lower case letters;
+echoing can be turned off so the terminal operates in half duplex.
+See the system call stty____.
+(Also see init____ for the way 300-baud terminals are detected.)
+
+Normally, a typewriter operates in units of lines.
+This means that a program attempting
+to read will be suspended until an entire line has been
+typed.  Also, no matter how many characters are requested
+in the read call, at most one line will be returned.
+It is not however necessary to read a whole line at
+once; any number of characters may be
+requested in a read, even one, without losing information.
+
+The EOT character may be used to generate an end of file
+from a typewriter.
+When an EOT is received, all the characters
+waiting to be read are immediately passed to
+the program, without waiting for a new-line.
+Thus if there are no characters waiting, which
+is to say the EOT occurred at the beginning of a line,
+zero characters will be passed back, and this is
+the standard end-of-file signal.
+
+When the carrier signal from the dataset drops (usually
+because the user has hung up his terminal) any read
+returns with an end-of-file indication.
+Thus programs which read a typewriter and are sensitive to
+end-of-file on their inputs
+(which all programs would be)
+will terminate appropriately when
+hung up on.
+
+Two characters have a special meaning when typed.
+The ASCII DEL character (sometimes called "rubout")
+is the interrupt_________ signal.
+When this character is received from a given typewriter,
+a search is made for all processes which have this typewriter
+as their control typewriter,
+and which have not informed the system that they wish
+to ignore interrupts.
+If there is more than one such process, one of these is
+selected, for practical purposes at random.
+Then either the process is forced to exit
+or a trap is simulated to an agreed-upon location
+in the process.
+See sys___ intr____ for more information.
+
+The ASCII character FS is the quit____ signal.
+Its treatment is identical to the interrupt signal
+except that unless the receiving process has
+made other arrangements it will not only be terminated
+but a core image file will be written.
+(See sys___ quit____ for more information.)
+
+During input, erase and kill processing is normally
+done.
+The character "#" erases the
+last character typed, except that it will not erase
+beyond the beginning of a line or an EOT.
+The character "@" kills the entire
+line up to the point where it was typed, but not beyond an EOT.  Both these
+characters operate on a keystroke basis independently
+of any backspacing or tabbing that may have been done.
+Either "@" or "#" may be entered literally by preceding
+it by "\\";
+the erase or kill character remains, but the
+"\\" disappears.
+
+It is also possible (again by sys___ stty____) to put
+the typewriter into raw mode.
+In this mode, the program
+reading is awakened on each character,
+and when a program reads, it waits only until at least
+one character has been typed.
+In raw mode, no erase or kill processing is done;
+and the EOT, quit and interrupt characters
+are not treated specially.
+
+Output is prosaic compared to input.
+It should be noted, however, that when one or more
+characters are written, they are actually transmitted
+to the terminal as soon as previously-written characters
+have finished typing.
+When a program produces characters too rapidly to be typed,
+as is very common,
+it may be suspended for a time.
+
+Odd parity is always generated on output,
+except that the characters EOT and NAK have the wrong parity.
+Thus the 37 TTY will not hang up (EOT)
+or lock its keyboard (NAK) if a program accidentally
+prints these characters.
+.sp
+.in 16
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	tty
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		As has been suggested,
+UNIX has a heavy predisposition towards 37 Teletype terminals.
+However, it is quite possible to use 300-baud terminals
+such as the GE TermiNet 300.
+(See init____ for the procedure.)
+The main difficulty in practice is 37-oriented delay calculations.
+
+Terminals such as the IBM 2741 would theoretically be
+very desirable but there are many difficulties related
+to its inadequate and non-ASCII character sets
+(the 2741 has two, count 'em)
+and the inherently half-duplex nature of the terminal.
+It is possible to produce output on a 2741; cf__ type____.
+.sp
+.ti 0
+OWNER		ken, dmr

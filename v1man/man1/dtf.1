@@ -1,0 +1,39 @@
+.pa 1
+.he '11/3/71''DTF (I)'
+.ti 0
+NAME		dtf -- DECtape format
+.sp
+.ti 0
+SYNOPSIS	/etc/dtf________
+.sp
+.ti 0
+DESCRIPTION	dtf___
+will write timing tracks, mark tracks and block numbers
+on a virgin DECtape.
+The format is DEC standard of 578 blocks of 256 words each.
+The end zones are a little longer than standard DEC.
+.sp
+Before use, the tape to be formatted should be mounted on drive 0.
+The 'wall' and 'wtm' switches should be enabled.
+After the tape is formatted, the switches should be disabled
+to prevent damage to subsequent tapes due to a controller logic error.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	sdate
+.sp
+.ti 0
+DIAGNOSTICS	"?" is typed for any error detected.
+.sp
+.ti 0
+BUGS		This program does physical I/O on drive 0.
+The processor priority is set very high due to
+very stringent real time requirements.
+This means that all___ time sharing activities are suspended
+during the formatting (about 1.5 minutes)
+The real time clock will also be slow.
+.sp
+.ti 0
+OWNER		ken

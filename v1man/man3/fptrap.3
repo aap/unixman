@@ -1,0 +1,31 @@
+.pa 1
+.he '11/3/71''FPTRAP (III)'
+.ti 0
+NAME		fptrap -- floating point simulator
+.sp
+.ti 0
+.nf
+SYNOPSIS	sys	33.; fptrap
+.fi
+.sp
+.ti 0
+DESCRIPTION	fptrap______
+is a package designed to pick up illegal instruction
+in order to simulate a sub-set of the 11/45 floating point hardware.
+.sp
+.ti 0
+FILES		kept in /etc/liba.a
+.sp
+.ti 0
+SEE ALSO	as, PDP-11/45 manual
+.sp
+.ti 0
+DIAGNOSTICS	none, hardware gives no diagnostics.
+.sp
+.ti 0
+BUGS		The simulation, if unsuccessful for any reason
+gives an IOT fault from inside the simulator.
+This should be handled better.
+.sp
+.ti 0
+OWNER		ken, dmr

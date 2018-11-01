@@ -1,0 +1,398 @@
+.pa 1
+.he '11/3/71''ED (I)'
+.tr |
+.ti 0
+NAME		ed  --  editor
+.sp
+.ti 0
+SYNOPSIS	ed__ [ name ]
+.sp
+.ti 0
+DESCRIPTION	ed__ is the standard text editor.
+ed__ is based on QED [reference] but is fully if succinctly
+described here.
+Differences between ed__ and QED are also noted
+to simplify the transition to the less powerful editor.
+.sp
+If the optional argument is given, ed__
+simulates an e_ command on the named file; that is to say,
+the file is read into ed__'s buffer so that it can be edited.
+.sp
+ed__ operates on a copy of any file it is editing; changes made
+in the copy have no effect on the file until an explicit write
+(w_) command is given.
+The copy of the text being edited resides
+in a temporary file called the buffer______.  There is only
+one buffer.
+.sp
+Commands to ed__ have a simple and regular structure: zero or
+more addresses_________ followed by a single character command_______, possibly
+followed by parameters to the command.
+These addresses specify one or more lines in the buffer.
+Every command which requires addresses has default addresses,
+so that the addresses can often be omitted.
+.sp
+In general only one command may appear on a line.
+Certain commands allow the input of text.
+This text is placed in the appropriate place in the buffer.
+While ed__ is accepting text, it is said
+to be in input_____ mode____.  In this mode, no commands are recognized;
+all input is merely collected.
+Input mode is left by typing a period (.) alone at the
+beginning of a line.
+.sp
+ed__ supports a limited form of regular_______ expression__________ notation.
+A regular expression is an expression which specifies
+a set of strings of characters.
+A member of this set of strings is said to be matched_______
+by the regular expression.
+The regular expressions allowed by ed__ are constructed as follows:
+.sp
+.in +6
+.ti -3
+1. An ordinary character (not one of those discussed below)
+is a regular expression and matches that character.
+.sp
+.ti -3
+2. A circumflex (^) at the beginning of a regular expression
+matches the null character at the beginning of a line.
+.sp
+.ti -3
+3. A currency symbol ($) at the end of a regular expression
+matches the null character at the end of a line.
+.sp
+.ti -3
+4. A period (.) matches any character but a new-line character.
+
+.ti -3
+5. A regular expression followed by an asterisk (*)
+matches any number of adjacent occurrences (including zero)
+of the regular expression it follows.
+
+.ti -3
+6. A string of characters enclosed in square brackets
+([]) matches any character in the string but no others.
+If, however, the first character of the string is a circumflex
+(^) the regular expression matches any character but new-line
+and the characters in the string.
+
+.ti -3
+7. The concatenation of regular expressions is a regular
+expression which matches the concatenation of the strings
+matched by the components of the regular expression.
+
+.ti -3
+8. The null regular expression standing alone
+is equivalent to the last regular expression encountered.
+
+.in -6
+Regular expressions are used in addresses to specify
+lines and in one command (s_, see below)
+to specify a portion of a line which is to be replaced.
+
+If it is desired to use one of
+the regular expression metacharacters as an ordinary
+character, that character may be preceded by "\\".
+This also applies to the character bounding the regular
+expression (often "/") and to "\\" itself.
+.sp
+Addresses are constructed as follows.
+To understand addressing in ed__
+it is necessary to know that at any time there is a current_______
+line____.  Generally speaking, the current line is
+the last line affected by a command; however,
+the exact effect on the current line
+by each command is discussed under the description of
+the command.
+
+.in +6
+.ti -3
+1. The character "." addresses the current line.
+
+.ti -3
+2. The character "$" addresses the last line of the buffer.
+
+.ti -3
+3. A decimal number n_ addresses the n_th line of the buffer.
+
+.ti -3
+4. A regular expression enclosed in slashes "/" addresses
+the first line found by searching toward the end of the
+buffer and stopping at the first line containing a
+string matching the regular expression.
+If necessary the search wraps around to the beginning of the
+buffer.
+
+.ti -3
+5. A regular expression enclosed in queries "?" addresses
+the first line found by searching toward the beginning of
+the buffer and stopping at the first line found containing
+a string matching the regular expression.  If necessary
+the search wraps around to the end of the buffer.
+
+.ti -3
+7. An address followed by a plus sign "+"
+or a minus sign "-" followed by a decimal number specifies that address plus
+(resp. minus) the indicated number of lines.
+The plus sign may be omitted.
+.sp
+.in -6
+Commands may require zero, one, or two addresses.
+Commands which require no addresses regard the presence
+of an address as an error.
+Commands which require the presence of one address
+all assume a default address (often ".")
+but if given more than one address ignore
+any extra and use the last given.
+Commands which require two addresses have defaults in the
+case of zero or one address but use the last two
+if more than two are given.
+
+Addresses are separated from each other typically by a comma
+(,).
+They may also be separated by a semicolon
+(;).  In this case the current line "." is set to the
+the previous address before the next address is interpreted.
+This feature is used to control the starting
+line for forward and backward searches ("/", "?").
+
+In the following list of ed__ commands, the default addresses
+are shown in parentheses.  The parentheses are not part of
+the address, but are used to show that the given addresses are
+the default.
+
+As mentioned, it is generally illegal for more than one
+command to appear on a line.
+However, any command may be suffixed by "p" (for "print").
+In that case, the current line is printed after the command
+is complete.
+
+In any two-address command, it is illegal for the
+first address to lie after the second address.
+.ne 6
+
+.in +6
+.ti -3
+(.)a
+.ti -3
+<text>
+.ti -3
+.li
+.
+.br
+The a_ppend command reads the given text
+and appends it after the addressed line.  "." is left
+on the last line input, if there
+were any, otherwise at the addressed line.
+Address "0" is legal for this command; text is placed
+at the beginning of the buffer.
+(NOTE: the default address differs from that of QED.)
+
+.ti -3
+(.,.)c
+.ti -3
+<text>
+.ti -3
+.
+.br
+The c_hange
+command deletes the addressed lines, then accepts input
+text which replaces these lines.
+"." is left at the last line input; if there were none,
+it is left at the first line not changed.
+
+.ti -3
+(.,.)d
+.br
+The d_elete command deletes the addressed lines from the buffer.
+"." is left at the first line not deleted
+
+.ti -3
+e filename
+.br
+The e_dit
+command causes the entire contents of the buffer to be deleted,
+and then the named file to be read in.
+"." is set to the last line of the buffer.
+The number of characters read is typed.
+
+.ti -3
+(1,$)g/regular expression/command
+.br
+In the g_lobal
+command, the first step is to mark every line which matches
+the given regular expression.
+Then for every such line, the
+given command is executed with "." set to that line.
+The repeated command cannot be
+a_, q_, i_, or c_.
+
+.ti -3
+(.)i
+.ti -3
+<text>
+.ti -3
+.
+.br
+This command i_nserts the given text before the addressed line.
+"." is left at the last line input; if there were none,
+at the addressed line.
+This command differs from the a_ command only in the placement of the
+text.
+
+.ti-3
+(.,.)l
+.br
+The l_ist command prints the addressed lines
+in an unambiguous way.
+Non-printing characters are over-struck as follows:
+.in+3
+char____  prints______
+.br
+ bs	-\\
+.br
+tab	->
+.br
+ret	-<
+.br
+SI	-I
+.br
+SO	-O
+.in-3
+All character preceded by a prefix (ESC) character
+are printed over-struck with ^ without the prefix.
+Long lines are folded with the sequence \\newline.
+
+.ti -3
+(.,.)p
+.br
+The p_rint command prints the addressed lines.  "."
+is left at the last line printed.
+
+.ti -3
+q_
+.br
+The q_uit command causes ed__ to exit.  No automatic write
+of a file is done.
+
+.ti -3
+($)r filename
+.br
+The r_ead command
+reads in the given file after the addressed line.
+If no file name is given,
+the file last mentioned in e_, r_, or w_ commands is read.
+Address "0" is legal for r_ and causes the
+file to be read at the beginning of the buffer.
+If the read is successful, the number of characters
+read is typed.
+"." is left at the last line read in from the file.
+
+.ti -3
+(.,.)s/regular expression/replacement/
+.br
+The s_ubstitute command searches each addressed
+line for an occurrence of the specified regular expression.
+On each line in which a match is found,
+the first (and only first, compare QED) matched string
+is replaced by the replacement specified,
+It is an error for the substitution to fail on all addressed lines.
+Any character other than space or new-line
+may be used instead of "/" to delimit the regular expression
+and the replacement.
+"." is left at the last line substituted.
+
+The ampersand "&" appearing in the replacement
+is replaced by the regular expression that was matched.
+The special meaning of "&" in this context may be
+suppressed by preceding it by "\\".
+
+.ti -3
+(1,$)w filename
+.br
+The w_rite command writes the addressed lines onto
+the given file.
+If no file name is given,
+the file last named in e_, r_, or w_ commands is written.
+"." is unchanged.
+If the command is successful, the number of characters written is
+typed.
+
+.ti -3
+($)=
+.br
+The line number of the addressed line is typed.
+"." is unchanged by this command.
+
+.ti -3
+!UNIX command
+.br
+The remainder of the line after the "!" is sent
+to UNIX to be interpreted as a command.
+"." is unchanged.
+
+.ti -3
+<newline>
+.br
+A blank line alone is equivalent to ".+1p"; it is useful
+for stepping through text.
+
+.in -6
+Ed__ can edit at most 1500 lines and the maximum size of a line
+is 256 characters.
+The differences between ed__ and QED are:
+.sp
+.in +6
+.ti -3
+1. There is no "\\f" character;
+input mode is left by typing "." alone on a line.
+.sp
+.ti -3
+2. There is only one buffer and hence no "\\b" stream directive.
+.sp
+.ti -3
+3.  The commands are limited to:
+.sp
+    a c d e g i l p q r s w = !
+.sp
+where e_ is new.
+.sp
+.ti -3
+4. The only special characters in regular expressions are:
+.sp
+    *  ^  $  [  .
+.sp
+which have the usual meanings.
+However, "^" and "$" are only effective if they are
+the first or last character respectively of the regular expression.
+Otherwise suppression of special meaning is done by
+preceding the character by "\\",
+which is not otherwise special.
+.sp
+.ti -3
+5. In the substitute command, only the leftmost
+occurrence of the matched regular expression is substituted.
+.sp
+.ti -3
+7. The a_ command has a different default address.
+.in -6
+.sp
+.ti 0
+FILES		/tmp/etma, etmb, ... temporary
+.br
+/etc/msh is used to implement the "!" command.
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	"?" for any error
+.sp
+.ti 0
+BUGS		ed__ is used as the shell for the editing system.
+it has the editing system UID built in and
+if invoked under this UID will give slightly different responses.
+This is a little kludgy.
+.sp
+.ti 0
+OWNER		ken

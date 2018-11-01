@@ -1,0 +1,41 @@
+.pa 1
+.he '11/3/71''BOOT (I)'
+.ti 0
+NAME		boot  --  reboot system
+.sp
+.ti 0
+SYNOPSIS	/etc/boot_________
+.sp
+.ti 0
+DESCRIPTION	boot____
+logically a command, and is kept in /etc
+only to lessen the probability of its being invoked
+by accident or from curiosity.
+It reboots the system by jumping to the read-only memory,
+which contains a disk boot program.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	boot procedure
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Should obviously not be executable
+by the general user.
+Also, it should reboot in a more direct manner.
+The mechanism invoked by jumping to the
+ROM loader is sensitive to the contents of the console switches,
+which makes the whole procedure even more dangerous.
+.sp
+Rather than jumping to the ROM,
+boot____ should simulate the ROM action with 173700
+in the switches. In this manner,
+It may be used when the switches are not set,
+and even in installation without a ROM.
+.sp
+.ti 0
+OWNER		ken

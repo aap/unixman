@@ -1,0 +1,33 @@
+.pa 1
+.he '11/3/71''SYS MKDIR (II)'
+.ti 0
+NAME		mkdir  --  make a directory
+.sp
+.ti 0
+SYNOPSIS	sys  mkdir; name; mode  / mkdir = 14.
+.sp
+.ti 0
+DESCRIPTION	mkdir_____ creates an empty directory
+whose name is the null-terminated string pointed
+to by name____.
+The mode of the directory is mode____.
+The special entries "." and ".." are not present.
+.sp
+mkdir_____ may be invoked only by the super-user.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	mkdir command
+.sp
+.ti 0
+DIAGNOSTICS	Error bit (c-bit)
+is set if the directory already exists
+or if the user is not the super-user.
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

@@ -1,0 +1,44 @@
+.pa 1
+.he '11/3/71''SYS TELL (II)'
+.ti 0
+NAME		tell -- get file pointer
+.sp
+.ti 0
+SYNOPSIS	(file descriptor in r0)
+.br
+sys	tell; offset; ptrname	/ tell = 20.
+.br
+(value retruned in r0)
+.sp
+.ti 0
+DESCRIPTION	The file descriptor
+refers to an open file.
+The value returned in r0 is one of:
+.sp
+.in +3
+if ptrname_______ is 0,
+the value returned is offset______;
+.sp
+if ptrname_______ is 1,
+the value is the current pointer plus offset______;
+.sp
+if ptrname_______ is 2,
+the value returned is
+the number of bytes in the file plus offset______.
+.in -3
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	seek
+.sp
+.ti 0
+DIAGNOSTICS	The error bit (c-bit) is set
+if the file descriptor is unknown.
+.sp
+.ti 0
+BUGS		Tell doesn't work. Complain if you need it.
+.sp
+.ti 0
+OWNER		ken, dmr

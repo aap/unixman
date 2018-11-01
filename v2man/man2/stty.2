@@ -12,7 +12,7 @@ sys stty; arg  / stty = 31.
 .li
 ...
 .ti -6
-arg:  dcrsr; dctsr; mode
+arg:  dcrsr; dcpsr; mode
 .sp
 .ti 0
 DESCRIPTION	stty____
@@ -21,7 +21,7 @@ is passed in r0.
 First, the system delays until the typewriter is quiescent.
 Then, the argument dcrsr_____ is placed into the typewriter's
 receiver control and status register,
-and dctsr_____ is placed in the transmitter control and status register.
+and dcpsr_____ is placed in the transmitter control and status register.
 The DC-11 manual must be consulted for the format of these
 words.
 For the purpose of this call, the most important ro^le of

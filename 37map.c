@@ -6,8 +6,8 @@ Biobuf *bin, *bout;
 int greek;
 int esc;
 
-long
-map(char c)
+Rune
+map(Rune c)
 {
 	static long charmap[] = {
 		L'ν', L'α', L'β', L'ω', L'δ', L'Λ', L'Φ', L'Γ',
@@ -26,11 +26,11 @@ map(char c)
 void
 main()
 {
-	long c;
+	Rune c;
 	bin = Bfdopen(0, OREAD);
 	bout = Bfdopen(1, OWRITE);
 
-	while(c = Bgetrune(bin), c >= 0){
+	while(c = Bgetrune(bin), c != Beof){
 		if(c == 016)
 			greek = 1;
 		else if(c == 017)

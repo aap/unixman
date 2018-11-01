@@ -1,0 +1,48 @@
+.pa 1
+.he '11/3/71''MV (I)'
+.ti 0
+NAME		mv  --  move or rename a file
+.sp
+.ti 0
+SYNOPSIS	mv__ name\d1\u name\d2\u ... ...
+.sp
+.ti 0
+DESCRIPTION	mv__
+changes the name of name\d1\u by linking to it
+under the name name\d2\u and then unlinking name\d1\u.
+Several pairs of arguments may be given.
+If the new name is a directory, the file is moved to
+that directory under its old name.
+Directories may only be moved within the same parent
+directory (just renamed).
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	"?a"-- incorrect argument count
+.br
+"?d"-- attempt to move a directory
+.br
+"?s"-- moving file to itself
+.br
+.in +7
+.ti -7
+"?l"-- link error; old file doesn't exist or can't write new directory
+.in -7
+.br
+"?u"-- can't unlink old name
+.sp
+.ti 0
+BUGS		If mv succeeds in removing the target file,
+but then in unable to link back to the old file,
+the result is ?l and the removal of the target file.
+This is common with demountable file systems
+and should be circumvented.
+Also in such cases, mv should copy if it can.
+.sp
+.ti 0
+OWNER		ken, dmr

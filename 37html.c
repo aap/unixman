@@ -2,37 +2,145 @@
 #include <libc.h>
 #include <bio.h>
 
-/* flags */
-enum
-{
-	Sub = 1,
-	Super = 2,
-	Under = 4,
-};
+enum { LL = 512 };
 
 Biobuf *bin, *bout;
-long chars[1024];
-char flags[1024];
+typedef struct Line Line;
+struct Line {
+	Rune line[LL];
+	char flags[LL];
+} *page;
+int np;
 int lp;
-int linepos;
+int pp;
 
-/* This is not a proper Teletype 37 emulator.
- * It just does what the manual actually uses. */
-int
-readline(void)
+int ul, ss;
+
+void
+tags(int f)
 {
-	long c;
+	if(ul != (f&1)){
+		ul = f&1;
+		Bprint(bout, "<%su>", ul ? "" : "/");
+	}
+	if(ss != (f&2)){
+		ss = f&2;
+		Bprint(bout, "<%ss>", ss ? "" : "/");
+	}
+}
+
+void
+writehtml(void)
+{
+	Line *l;
+
+	ul = 0;
+	for(l = &page[0]; l < &page[np]; l++){
+		ul = 0;
+		for(lp = 0; l->line[lp] != '\0'; lp++){
+			tags(l->flags[lp]);
+			switch(l->line[lp]){
+			case '<':
+				Bprint(bout, "&lt;");
+				break;
+			case '>':
+				Bprint(bout, "&gt;");
+				break;
+			case '&':
+				Bprint(bout, "&amp;");
+				break;
+			default:
+				Bputrune(bout, l->line[lp]);
+			}
+		}
+		tags(0);
+		Bputc(bout, '\n');
+	}
+}
+
+Rune
+comb(Rune a, Rune b)
+{
+#define PAIR(A, B) a == A && b == B || a == B && b == A
+	if(PAIR('o', '^')) return L'ô';
+	if(PAIR('c', '|')) return L'¢';
+	if(PAIR('a', '`')) return L'á';
+	if(PAIR('=', '/')) return L'≠';
+	fprint(2, "warning: overwriting char %C %C\n", a, b);
+	return b;
+}
+
+void
+put(Rune c)
+{
+	Line *l;
+	int p;
+	Rune d;
+
+	l = &page[pp];
+	/* make sure we have spaces before this character */
+	for(p = lp-1; p >= 0; p--)
+		if(l->line[p] == '\0')
+			l->line[p] = ' ';
+		else
+			break;
+
+	d = l->line[lp];
+	if(c == '_' && d != '\0')
+		l->flags[lp] |= 1;
+	else if(d == '_'){
+		l->flags[lp] |= 1;
+		l->line[lp] = c;
+	}else if(c == '-' && d != '\0')
+		l->flags[lp] |= 2;
+	else if(d == '-'){
+		l->flags[lp] |= 2;
+		l->line[lp] = c;
+	}else if(d && c != d){
+		/* overstrike */
+		if(d == ' ') l->line[lp] = c;
+		else if(c == ' ') {}
+		else l->line[lp] = comb(d, c);
+	}else
+		l->line[lp] = c;
+	lp++;
+}
+
+void
+down(void)
+{
+	pp++;
+	if(pp >= np){
+		page = realloc(page, (pp+1)*sizeof(Line));
+		memset(&page[np], 0, (pp+1-np)*sizeof(Line));
+		np = pp+1;
+	}
+}
+
+void
+up(void)
+{
+	if(pp > 0)
+		pp--;
+}
+
+void
+main()
+{
+	Rune c;
 	int esc;
 
-	esc = 0;
+	bin = Bfdopen(0, OREAD);
+	bout = Bfdopen(1, OWRITE);
+
+	page = malloc(sizeof(Line));
+	memset(&page[0], 0, sizeof(Line));
+	np = 1;
+	pp = 0;
 	lp = 0;
-	memset(chars, 0, sizeof(chars));
-	memset(flags, 0, sizeof(flags));
-	while(c = Bgetrune(bin), c >= 0){
-		if(c == 033){
-			esc = 1;
-			continue;
-		}
+
+	esc = 0;
+	while(c = Bgetrune(bin), c != Beof){
 		if(esc){
 			switch(c){
 			case '1': /* htab set */	break;
@@ -41,119 +149,46 @@ readline(void)
 			case '4': /* black */	break;
 			case '5': /* vtab set */	break;
 			case '6': /* vtab clear */	break;
-			case '7': /* rev line space */	break;
+			case '7': /* rev line space */
+				up();
+				up();
+				break;
 			case '8': /* half rev line space */
-				linepos--;
-				linepos %= 2;
+				up();
 				break;
 			case '9': /* half line space */
-				linepos++;
-				linepos %= 2;
+				down();
 				break;
 			case ':': /* full duplex */	break;
 			case ';': /* half duplex */	break;
 			}
 			esc = 0;
-			continue;
-		}
-		if(c == '\n'){
-			linepos += 2;
-			linepos %= 2;
+		}else switch(c){
+		case 033:
+			esc = 1;
 			break;
-		}
-		switch(c){
+		case '\t':
+			/* TODO: this is wrong but we have no tab input */
+			put(' ');
+			break;
+		case '\n':
+			down();
+			down();
+			/* fall through */
 		case '\r':
 			lp = 0;
 			break;
 		case '\b':
 			lp--;
 			if(lp < 0) lp = 0;
+			if(lp >= LL) lp = LL-1;
 			break;
 		default:
-			if(c == '_' && chars[lp])
-				flags[lp++] |= Under;
-			else if(chars[lp] == '_'){
-				flags[lp] |= Under;
-				chars[lp] = c;
-				lp++;
-			}else{
-				if(linepos < 0)
-					flags[lp] |= Super;
-				else if(linepos > 0)
-					flags[lp] |= Sub;
-				chars[lp++] = c;
-			}
-			break;
+			put(c);
 		}
 	}
-	return c >= 0;
-}
 
-int sub, sup, u;
-
-void
-handletags(int f)
-{
-	if(!(f & Under) && u){
-		Bprint(bout, "</u>");
-		u = 0;
-	}
-	if(!(f & Super) && sup){
-		Bprint(bout, "</sup>");
-		sup = 0;
-	}
-	if(!(f & Sub) && sub){
-		Bprint(bout, "</sub>");
-		sub = 0;
-	}
-	if(f & Sub && !sub){
-		Bprint(bout, "<sub>");
-		sub = 1;
-	}
-	if(f & Super && !sup){
-		Bprint(bout, "<sup>");
-		sup = 1;
-	}
-	if(f & Under && !u){
-		Bprint(bout, "<u>");
-		u = 1;
-	}
-}
-
-void
-htmlprintln(void)
-{
-	long c;
-	sub = 0;
-	sup = 0;
-	u = 0;
-	for(lp = 0; chars[lp]; lp++){
-		handletags(flags[lp]);
-		c = chars[lp];
-		switch(c){
-		case '<':
-			Bprint(bout, "&lt;");
-			break;
-		case '>':
-			Bprint(bout, "&gt;");
-			break;
-		default:
-			Bputrune(bout, c);
-			break;
-		}
-	}
-	handletags(0);
-	Bputc(bout, '\n');
-}
-
-void
-main()
-{
-	bin = Bfdopen(0, OREAD);
-	bout = Bfdopen(1, OWRITE);
-
-	while(readline())
-		htmlprintln();
+	writehtml();
 
 	Bterm(bin);
 	Bterm(bout);

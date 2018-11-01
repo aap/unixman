@@ -1,0 +1,44 @@
+.pa 1
+.he '11/3/71''TYPE (I)'
+.ti 0
+NAME		type  --  type on 2741
+.sp
+.ti 0
+SYNOPSIS	type____ name918 ...
+.sp
+.ti 0
+DESCRIPTION	type____
+produces output on an IBM 2741 terminal with
+a Correspondence type ball.
+.sp
+type____ uses typewriter tty5, which,
+because of the lack of access ports,
+is also used as a standard communication channel.
+Therefore, who___ should be used to verify
+the absence of a user on tty5.
+.sp
+The method is as follows:
+type the type____ command.
+It will wait until tty5 is dialled up.
+When the phone answers, depress the interrupt button
+after paper has been loaded, and the first file will be typed.
+type____ spaces out to the end of a sheet of paper and
+waits until the interrupt button is depressed before
+beginning each new file.
+.sp
+.ti 0
+FILES		/dev/tty5
+.sp
+.ti 0
+SEE ALSO	who
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Obviously some scheme is needed to prevent
+interference between normal users and type____.
+The best thing would be to support 2741's as a standard terminal.
+.sp
+.ti 0
+OWNER		dmr

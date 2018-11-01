@@ -1,0 +1,37 @@
+.pa 1
+.he '11/3/71''PTIME (III)'
+.ti 0
+NAME		ptime  --  print date and time
+.sp
+.ti 0
+SYNOPSIS	(move time to ac-mq)
+.br
+mov	file,r0
+.br
+jsr	pc,ptime
+.sp
+.ti 0
+DESCRIPTION	ptime_____ prints the date and time in the form
+.sp
+     Oct  9 17:20:33
+.sp
+on the file whose file descriptor is in r0.
+The string is 15 characters long.
+The time to be printed
+is placed in the AC and MQ registers
+in the form returned by sys___ time____.
+.sp
+.ti 0
+FILES		kept in /usr/lib/liba.a
+.sp
+.ti 0
+SEE ALSO	sys time, ctime (used to do the conversion)
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		see ctime
+.sp
+.ti 0
+OWNER		dmr, ken

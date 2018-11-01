@@ -1,0 +1,56 @@
+.pa 1
+.he '11/3/71''SYS WAIT (II)'
+.ti 0
+NAME		wait  --  wait for process to die
+.sp
+.ti 0
+SYNOPSIS	sys	wait		/ wait = 7.
+.br
+(process ID in r0)
+.br
+.sp
+.ti 0
+DESCRIPTION	wait____
+causes its caller to delay until one of its child
+processes terminates.
+If any child has already died, return is immediate;
+if there are no children, return is immediate with
+the error bit set.
+In the case of several children several wait____s are needed
+to learn of all the deaths.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	fork
+.sp
+.ti 0
+DIAGNOSTICS	error bit
+(c-bit) on if no children not previously waited for.
+.sp
+.ti 0
+BUGS		A child
+which dies but is never
+waited for is not really gone
+in that it still consumes disk swap
+and system table space.
+This can make it impossible to create new processes.
+The bug can be noticed when several "&" separators
+are given to the shell not followed by a command without
+an ampersand.
+Ordinarily things clean themselves up when
+an ordinary command is typed,
+but is possible to get into a situation in which
+no commands are accepted,
+so no wait____s are done;
+the system is then hung.
+.sp
+The fix, probably, is to have a new kind of fork____
+which creates a process for which no
+wait____ is necessary (or possible);
+also to limit the number of active or inactive
+descendants allowed to a process.
+.sp
+.ti 0
+OWNER		ken, dmr

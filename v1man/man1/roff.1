@@ -1,0 +1,41 @@
+.pa 1
+.he '11/3/71''ROFF (I)'
+.ti 0
+NAME		roff  --  format text
+.sp
+.ti 0
+.nf
+SYNOPSIS	roff____ [ +_number ] [ -_number ] name\d1\u ...
+.fi
+.sp
+.ti 0
+DESCRIPTION	roff____
+formats text according to control lines embedded in the text.
+The optional argument "+number" causes printing
+to begin at the first page
+with the appropriate number;
+"-number" causes printing to cease
+at the first page with a higher number.
+.sp
+roff____ is fully described in a separate publication [reference].
+.sp
+.ti 0
+FILES		/etc/suftab___________
+contains a list of suffixes used to guide hyphenation.
+/tmp/rtma, rtmb, ... temporary.
+/dev/ttyn to suspend messages.
+.sp
+.ti 0
+SEE ALSO	[reference], mesg
+.sp
+.ti 0
+DIAGNOSTICS	none -- files not found are ignored
+.sp
+.ti 0
+BUGS		roff____
+does not check for various kinds of buffer overflow.
+If a fault occurs, check the input in the region
+where the error occured
+.sp
+.ti 0
+OWNER		jfo, dmr, ken

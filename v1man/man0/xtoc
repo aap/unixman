@@ -1,0 +1,149 @@
+ar(I): archive (combine) files
+as(I): assembler
+b(I): compile B program
+bas(I): BASIC dialect
+bcd(I): convert ASCII to BCD
+boot(I): reboot system
+cat(I): concatenate (or print) files
+chdir(I): change working directory
+check(I): check consistency of file system
+chmod(I): change access mode of files
+chown(I): change owner of files
+cmp(I): compare file contents
+cp(I): copy file
+date(I): get date and time of day
+db(I): symbolic debugger
+dbppt(I): write binary paper tape
+dc(I): desk calculator
+df(I): find free disk space
+dsw(I): delete files interactively
+dtf(I): format DECtape
+du(I): find disk usage
+ed(I): text editor
+find(I): find file with given name
+for(I): compile Fortran program
+form(I): generate form letter
+hup(I): hang up typewriter
+lbppt(I): read binary paper tape
+ld(I): link editor (loader)
+ln(I): link to file
+ls(I): list contents of directory
+mail(I): send mail to another user
+mesg(I): permit or deny messages
+mkdir(I): create directory
+mkfs(I): initialize file system
+mount(I): mount removable file system
+mv(I): move or rename file
+nm(I): print namelist
+od(I): octal dump of file
+pr(I): print file with headings
+rew(I): rewind DECtape
+rkd(I): dump disk to tape
+rkf(I): format RK disk
+rkl(I): load disk from tape
+rm(I): remove (delete) file
+rmdir(I): remove (delete) directory
+roff(I): format text for printing
+sdate(I): adjust date and time
+sh(I): command interpreter
+stat(I): get file status
+strip(I): remove symbols, relocation bits
+su(I): become super-user
+sum(I): sum file
+tap(I): manipulate DECtape
+tm(I): get time information
+tty(I): find name of terminal
+type(I): print file page-by-page
+umount(I): dismount removable file system
+un(I): find undefined symbols
+wc(I): get (English) word count
+who(I): who is on the system
+write(I): write to another user
+break(II): set program break
+cemt(II): catch EMT traps
+chdir(II): change working directory
+chmod(II): change mode of file
+chown(II): change owner of file
+close(II): close open file
+creat(II): create file
+exec(II): execute program file
+exit(II): terminate execution
+fork(II): create new process
+fstat(II): status of open file
+getuid(II): get user ID
+gtty(II): get typewriter mode
+ilgins(II): catch illegal instruction trap
+intr(II): catch or inhibit interrupts
+link(II): link to file
+mkdir(II): create directory
+mount(II): mount file system
+open(II): open file
+quit(II): catch or inhibit quits
+read(II): read file
+rele(II): release processor
+seek(II): move read or write pointer
+setuid(II): set user ID
+smdate(II): set date modified of file
+stat(II): get file status
+stime(II): set system time
+stty(II): set mode of typewriter
+tell(II): find read or write pointer
+time(II): get time of year
+umount(II): dismount file system
+unlink(II): remove (delete) file
+wait(II): wait for process
+write(II): write file
+atof(III): convert ASCII to floating
+atoi(III): convert ASCII to integer
+ctime(III): convert time to ASCII
+exp(III): exponential function
+fptrap(III): floating-point simulator
+ftoa(III): convert floating to ASCII
+get(III): get character
+itoa(III): convert integer to ASCII
+log(III): logarithm base e
+mesg(III): print string on typewriter
+ptime(III): print time
+putc(III): write character or word
+sin(III): sine, cosine
+switch(III): transfer depending on value
+mem(IV): core memory as file
+ppt(IV): punched paper tape
+rf0(IV): RF disk file
+rk0(IV): RK disk file
+tap0,...,tap7(IV): DECtape file
+tty(IV): console typewriter
+tty0,...,tty5(IV): remote typewriter
+a.out(V): assembler and loader output
+archive(V): archive file
+bppt(V): binary paper tape format
+core(V): core image file
+directory(V): directory format
+file system(V): file system format
+passwd(V): password file
+uids(V): map names to user ID's
+utmp(V): logged-in user information
+basic(VI): DEC supplied BASIC
+bj(VI): the game of blackjack
+cal(VI): print calender
+chess(VI): the game of chess
+das(VI): disassembler
+dli(VI): load DEC binary paper tapes
+dpt(VI): read DEC ASCII paper tapes
+moo(VI): the game of MOO
+sort(VI): sort a file
+ttt(VI): the game of tic-tac-toe
+as2(VII): assembler's pass 2
+ascii(VII): map of ASCII
+ba(VII): B assembler
+bc(VII): B compiler
+bilib(VII): B interpreter library
+bproc(VII): boot procedure
+brt1,brt2(VII): B start and finish
+f1,f2,f3,f4(VII): Fortran compiler passes
+glob(VII): argument expander
+init(VII): initializer process
+kbd(VII): map of TTY 37 keyboard
+liba(VII): standard assembly-language library
+libb(VII): standard B library
+libf(VII): standard Fortran library

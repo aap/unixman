@@ -1,0 +1,75 @@
+.pa 1
+.he '11/3/71''ARCHIVE (V)'
+.ti 0
+NAME		archive (library) file format
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	The
+archive command ar__ is used to combine several files into
+one.
+Its use has three benefits:
+when files are combined, the file space consumed by the
+breakage at the end of each file
+(256 bytes on the average) is saved;
+directories are smaller and less confusing;
+archive files of object programs may be searched as libraries
+by the loader ld__.
+
+A file produced by ar__
+has a "magic number" at the start,
+followed by the constituent files, each preceded by a file header.
+The magic number is
+-147(10), or 177555(8)
+(it was chosen to be unlikely to occur anywhere else).
+The header of each file is 16 bytes long:
+
+.in +5
+.ti -3
+0-7
+.br
+file name, null padded on the right
+
+.ti -3
+8-11
+.br
+Modification time of the file
+
+.ti -3
+12
+.br
+User ID of file owner
+
+.ti -3
+13
+.br
+file mode
+
+.ti -3
+14-15
+.br
+file size
+
+.in -5
+If the file is an odd number of bytes long, it is padded
+with a null byte, but the size in the header is correct.
+
+Notice there is no provision for empty areas in an archive
+file.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	ar__, ld__
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

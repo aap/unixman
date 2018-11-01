@@ -1,0 +1,36 @@
+.pa 1
+.he '11/3/71''RKF (I)'
+.ti 0
+NAME		rkf  --  format RK disk to tape
+.sp
+.ti 0
+SYNOPSIS	rkf___
+.sp
+.ti 0
+DESCRIPTION	rkf___
+formats a virgin disk pack.
+Because it destroys all information on that pack,
+and because it is not interlocked against file system activity
+on the pack, the rkf___ program is not maintained
+in executable form.
+Instead the source must be located and assembled.
+.sp
+.ti 0
+FILES		none (uses physical I/O on drive 0).
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	"error" is printed
+and a core image is produced if a write error occurs.
+A copy of the RK status register is in register 5.
+.sp
+.ti 0
+BUGS		As mentioned,
+rkf___ is not interlocked against system I/O;
+if I/O is already occurring, it will be badly disrupted.
+In any event, all information on the pack is destroyed.
+.sp
+.ti 0
+OWNER		ken, dmr

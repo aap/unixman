@@ -1,0 +1,34 @@
+.pa 1
+.he '11/3/71''SU (I)'
+.ti 0
+NAME		su  --  become privileged user
+.sp
+.ti 0
+SYNOPSIS	su password
+.sp
+.ti 0
+DESCRIPTION	su
+allows one to become the super-user, who has
+all sorts of marvelous powers.
+In order for su to do its magic, the user must
+pass as an argument a password.
+If the password is correct, su
+will execute the shell with the UID set to
+that of the super-user.
+To restore normal UID privileges,
+type an end-of-file to the super-user shell.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	shell
+.sp
+.ti 0
+DIAGNOSTICS	"Sorry" if password is wrong
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		dmr, ken

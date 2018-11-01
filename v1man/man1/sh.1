@@ -1,0 +1,181 @@
+.pa 1
+.he '11/3/71''SH (I)'
+.ti 0
+NAME		sh  --  shell (command interpreter)
+.sp
+.ti 0
+SYNOPSIS	sh__ [ name [ arg\d1\u ... [ arg\d9\u ] ] ]
+.sp
+.ti 0
+DESCRIPTION	sh__
+is the standard command interpreter.
+It is the program which reads and arranges the execution of
+the command lines typed by most users.
+It may itself be called as a command to interpret
+files of command lines.
+Before discussing the arguments to the shell
+used as a command, the structure of command
+lines themselves will be given.
+.sp
+Command lines are sequences of commands separated by command
+delimiters.
+Each command is a sequence of non-blank command arguments
+separated by blanks.
+The
+first argument specifies the name of a command to be
+executed.  Except for certain types of special
+arguments discussed below, the arguments
+other than the command name are simply passed
+to the invoked command.
+.sp
+If the first argument represents the path name of an executable
+file, it is invoked;
+otherwise the string "/bin/" is prepended to the argument.
+(In this way most standard commands,
+which reside in "/bin", are found.)
+If this search too fails a diagnostic is printed.
+.sp
+The remaining non-special arguments are simply passed to the command
+without further interpretation by the shell.
+.sp
+There are three command delimiters:  the new-line, ";", and "&".
+The semicolon ";" specifies sequential execution of the commands
+so separated; that is,
+.sp
+	coma; comb
+.sp
+causes the execution first of command coma____, then of comb____.
+The ampersand "&" causes simultaneous execution:
+.sp
+	coma & comb
+.sp
+causes coma____ to be called,
+followed immediately by comb____ without waiting for coma____ to finish.
+Thus coma____ and comb____
+execute simultaneously.  As a special case,
+.sp
+	coma &
+.sp
+causes coma____ to be executed and the shell immediately
+to request another command without waiting for coma____.
+.a
+.sp
+Two characters cause the immediately following string
+to be interpreted as a special argument to the shell itself, not
+passed to the command.
+An argument of the form "<arg" causes the file arg___
+to be used as the standard input file of the given command;
+an argument of the form ">arg" causes file "arg" to be used
+as the standard output file for the given command.
+.sp
+If any argument contains either of the characters "?" or "*",
+it is treated specially as follows.
+The current directory is searched for files which match_____
+the given argument.
+The character "*" in an argument matches any string of characters
+in a file name (including the null string).
+"?" matches any single character in a file name.
+Other argument characters match only the same character in
+the file name.
+For example, "*" matches all file names;
+"?" matches all one-character file names; "ab*.s" matches
+all file names beginning with "ab" and ending with ".s";
+
+If the argument with "*" or "?" also contains a "/", a slightly
+different procedure is used:  instead of the current directory,
+the directory used is the one obtained
+by taking the argument up to the last "/" before a "*" or "?".
+The matching process matches the remainder of the argument
+after this "/"  against the files in the derived directory.
+For example: "/usr/dmr/a*.s" matches
+all files in directory "/usr/dmr" which begin
+with "a" and end with ".s".
+
+In any event, a list of names is obtained which match
+the argument.  This list is sorted into alphabetical order,
+and the resulting sequence of arguments replaces the
+single argument containing the "*" or "?".
+The same process is carried out for each argument
+with a "*" or "?"
+(the resulting lists are not___ merged)
+and finally the command is called with the resulting list of
+arguments.
+
+For example: directory /usr/dmr contains the files
+a1.s, a2.s, ..., a9.s.  From any directory, the command
+
+     as /usr/dmr/a?.s
+
+calls as__ with arguments
+/usr/dmr/a1.s, /usr/dmr/a2.s, ...
+/usr/dmr/a9.s
+in that order.
+.sp
+The character "\\" causes the immediately following character
+to lose any special meaning it may have to the shell;  in this
+way "<", ">", and other characters meaningful to the
+shell may be passed as part of arguments.
+A special case of this feature allows the continuation of commands
+onto more than one line:  a new-line preceded by "\\" is translated
+into a blank.
+.sp
+Sequences of characters enclosed in double (") or single (')
+quotes are also taken literally.
+.sp
+When the shell is invoked as a command, it has additional
+string processing capabilities.
+Recall that the form in which the shell is invoked is
+
+     sh [ name [ arg\d1\u ... [ arg\d9\u ] ] ]
+
+The name____ is the name of a file which will be read and
+interpreted.  If not given, this subinstance of the shell
+will continue to read the standard input file.
+
+In the file,
+character sequences of the form "$n",
+where n_ is a digit 0, ..., 9,
+are replaced by the n_th argument to the invocation
+of the shell (arg\dn\u).
+"$0" is replaced by name____.
+
+An end-of-file in the shell's input causes it to exit.
+A side effect of this fact means that the way to
+log out from UNIX is to type an end of file.
+
+.ti 0
+FILES		/etc/glob,
+.sp
+.ti 0
+SEE ALSO	[reference],
+which gives the theory of operation of the
+shell.
+.sp
+.ti 0
+DIAGNOSTICS	"?",
+in case of any difficulty.
+The most common problem is inability to find the given command.
+Others:  input file ("<") cannot be found;
+no more processes can be created
+(this will alleviate itself with the passage of time).
+Note that no diagnostic is given for inability to create
+an output (">") file;
+the standard output file has already been closed
+when the condition is discovered and there is no place
+to write the diagnostic.
+.sp
+If a "*" or "?" is used,
+the glob____ routine is invoked;
+it types "No command" if it cannot find the given command,
+and "No match" if there were no files which matched
+an argument with "?" or "*".
+.sp
+.ti 0
+BUGS		Better diagnostics should be provided.
+If a "*" or "?" is used,
+the command must be in /bin____.
+(Not, for example, in the user's directory.)
+This is actually a glob____ bug.
+.sp
+.ti 0
+OWNER		dmr, ken

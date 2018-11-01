@@ -1,0 +1,206 @@
+.bp
+.tr |
+.bl 1
+.nf
+.ta 30
+.tc .
+.ce
+TABLE OF CONTENTS
+
+I.  COMMANDS
+
+.xx
+ar 	 archive (combine) files
+as 	 assembler
+b 	 compile B program
+bas 	 BASIC dialect
+bcd 	 convert ASCII to BCD
+boot 	 reboot system
+cat 	 concatenate (or print) files
+chdir 	 change working directory
+check 	 check consistency of file system
+chmod 	 change access mode of files
+chown 	 change owner of files
+cmp 	 compare file contents
+cp 	 copy file
+date 	 get date and time of day
+db 	 symbolic debugger
+dbppt 	 write binary paper tape
+dc 	 desk calculator
+df 	 find free disk space
+dsw 	 delete files interactively
+dtf 	 format DECtape
+du 	 find disk usage
+ed 	 text editor
+find 	 find file with given name
+for 	 compile Fortran program
+form 	 generate form letter
+hup 	 hang up typewriter
+lbppt 	 read binary paper tape
+ld 	 link editor (loader)
+ln 	 link to file
+ls 	 list contents of directory
+mail 	 send mail to another user
+mesg 	 permit or deny messages
+mkdir 	 create directory
+mkfs 	 initialize file system
+mount 	 mount removable file system
+mv 	 move or rename file
+nm 	 print namelist
+od 	 octal dump of file
+pr 	 print file with headings
+rew 	 rewind DECtape
+rkd 	 dump disk to tape
+rkf 	 format RK disk
+rkl 	 load disk from tape
+rm 	 remove (delete) file
+rmdir 	 remove (delete) directory
+roff 	 format text for printing
+sdate 	 adjust date and time
+sh 	 command interpreter
+stat 	 get file status
+strip 	 remove symbols, relocation bits
+su 	 become super-user
+sum 	 sum file
+tap 	 manipulate DECtape
+tm 	 get time information
+tty 	 find name of terminal
+type 	 print file page-by-page
+umount 	 dismount removable file system
+un 	 find undefined symbols
+wc 	 get (English) word count
+who 	 who is on the system
+write 	 write to another user
+
+
+II.  SYSTEM CALLS
+
+.xx
+break 	 set program break
+cemt 	 catch EMT traps
+chdir 	 change working directory
+chmod 	 change mode of file
+chown 	 change owner of file
+close 	 close open file
+creat 	 create file
+exec 	 execute program file
+exit 	 terminate execution
+fork 	 create new process
+fstat 	 status of open file
+getuid 	 get user ID
+gtty 	 get typewriter mode
+ilgins 	 catch illegal instruction trap
+intr 	 catch or inhibit interrupts
+link 	 link to file
+mkdir 	 create directory
+mount 	 mount file system
+open 	 open file
+quit 	 catch or inhibit quits
+read 	 read file
+rele 	 release processor
+seek 	 move read or write pointer
+setuid 	 set user ID
+smdate 	 set date modified of file
+stat 	 get file status
+stime 	 set system time
+stty 	 set mode of typewriter
+tell 	 find read or write pointer
+time 	 get time of year
+umount 	 dismount file system
+unlink 	 remove (delete) file
+wait 	 wait for process
+write 	 write file
+
+
+III.  SUBROUTINES
+
+.xx
+atof 	 convert ASCII to floating
+atoi 	 convert ASCII to integer
+ctime 	 convert time to ASCII
+exp 	 exponential function
+fptrap 	 floating-point simulator
+ftoa 	 convert floating to ASCII
+get 	 get character
+itoa 	 convert integer to ASCII
+log 	 logarithm base e
+mesg 	 print string on typewriter
+ptime 	 print time
+putc 	 write character or word
+sin 	 sine, cosine
+switch 	 transfer depending on value
+
+
+IV.  SPECIAL FILES
+
+.xx
+mem 	 core memory as file
+ppt 	 punched paper tape
+rf0 	 RF disk file
+rk0 	 RK disk file
+tap0,...,tap7 	 DECtape file
+tty 	 console typewriter
+tty0,...,tty5 	 remote typewriter
+
+
+V.  FILE FORMATS
+
+.xx
+a.out 	 assembler and loader output
+archive 	 archive file
+bppt 	 binary paper tape format
+core 	 core image file
+directory 	 directory format
+file system 	 file system format
+passwd 	 password file
+uids 	 map names to user ID's
+utmp 	 logged-in user information
+
+
+VI.  USER MAINTAINED PROGRAMS
+
+.xx
+basic 	 DEC supplied BASIC
+bj 	 the game of blackjack
+cal 	 print calender
+chess 	 the game of chess
+das 	 disassembler
+dli 	 load DEC binary paper tapes
+dpt 	 read DEC ASCII paper tapes
+moo 	 the game of MOO
+sort 	 sort a file
+ttt 	 the game of tic-tac-toe
+
+
+VII.  MISCELLANEOUS
+
+.xx
+as2 	 assembler's pass 2
+ascii 	 map of ASCII
+ba 	 B assembler
+bc 	 B compiler
+bilib 	 B interpreter library
+bproc 	 boot procedure
+brt1,brt2 	 B start and finish
+f1,f2,f3,f4 	 Fortran compiler passes
+glob 	 argument expander
+init 	 initializer process
+kbd 	 map of TTY 37 keyboard
+liba 	 standard assembly-language library
+libb 	 standard B library
+libf 	 standard Fortran library
+login, logout 	 logging on and logging off the system
+msh 	 mini Shell
+suftab 	 roff's suffix table
+tabs 	 set tab stops on typewriter
+.xx
+.bp
+.bl 1
+.ce
+INDEX
+
+
+.nf
+.tc
+.ta 9 17 25 33 41 49 57
+.nx index

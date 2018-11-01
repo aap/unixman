@@ -1,0 +1,77 @@
+.pa 1
+.he '11/3/71''LOGIN, LOGOUT (VII)'
+.ti 0
+NAME		logging in and logging out
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	UNIX
+must be called from an appropriate terminal.
+The two general classes of
+terminals which UNIX supports are typified by
+the 37 Teletype on the one hand and
+the GE TermiNet 300 and Memorex 1240 on the other.
+The principal difference is the baud rate (150 vs. 300)
+and the treatment of the carriage return character.
+Most terminals operating at 150, 300, or 1200 baud
+using the ASCII character set either work (more or less)
+at the moment or can be used by special arragement.
+In particular, special arrangement is necessary for terminals
+which do not generate lower-case ASCII characters
+
+It is also necessary to have
+a valid UNIX user ID and (if desired) password.  These
+may be obtained, together with the telephone number, from the system administrators.
+
+The same telephone number
+serves terminals operating at both the standard speeds.
+When a connection is established via a 150-baud terminal
+(e.g. TTY 37) UNIX types out "login:"; you respond with
+your user name, and, if a mask is typed, with a password.
+If the login was successful, the "@" character
+is typed by the Shell to indicate
+login is complete and commands may be issued.
+A message of the day may be typed if there are any announcements.
+Also, if there is a file called "mailbox", you are notified
+that someone has sent you mail.
+(See the mail____ command.)
+
+From a 300-baud terminal, the procedure is slightly different.
+Such terminals often have a full-duplex switch, which should
+be turned on (or conversely, half-duplex should be turned off).
+When a connection with UNIX is established, a few garbage
+characters are typed (these are the "login:" message at the wrong speed).
+You should depress the "break" key;
+this is a speed-independent signal to UNIX that a 300-baud
+terminal is in use.  It will type "login:" (at the correct speed
+this time) and from then on the procedure is the same as described
+above.
+
+Logging out is simple by comparison (in fact, sometimes too simple).
+Simply generate an end-of-file at Shell level by using
+the EOT character; the "login:" message will appear again to
+indicate that you may log in again.
+
+It is also possible to log out simply by hanging up the terminal;
+this simulates an end-of-file on the typewriter.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	init____
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Hanging up
+on programs which never read
+the typewriter or which ignore end-of-files
+is very dangerous; in the worst cases,
+the programs can only be halted by restarting the system.
+.sp
+.ti 0
+OWNER		ken, dmr

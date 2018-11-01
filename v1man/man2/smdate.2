@@ -1,0 +1,36 @@
+.pa 1
+.he '11/3/71''SYS SMDATE (II)'
+.ti 0
+NAME		smdate  --  set modified date on file
+.sp
+.ti 0
+SYNOPSIS	(time to AC-MQ)
+.br
+.nf
+sys	smdate; file  / smdate = 30.; not in assembler
+.fi
+.sp
+.ti 0
+DESCRIPTION	File____
+is the address of a null-terminated string giving the
+name of a file.
+The modified time of the file is set to the time given in
+the AC-MQ registers.
+.sp
+This call is allowed only to the super-user.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	Error bit
+is set if the user is not the super-user or if the file cannot be found.
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

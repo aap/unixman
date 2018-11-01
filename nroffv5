@@ -4,6 +4,15 @@ v=v5man
 
 mkdir -p html_$v
 
+fn condeqn {
+	switch($pagename){
+	case eqn.1
+		eqn
+	case *
+		cat
+	}
+}
+
 for(s in $v/man[1-8x]){
 	mkdir -p html_$s
 	echo $s
@@ -11,6 +20,6 @@ for(s in $v/man[1-8x]){
 		pagename=`{basename $p}
 		h=html_`{echo $p | sed 's/\.[1-8]$/.html/'}
 		echo $h
-		cat $v/man0/naa_x $p | fixli | nroff37 >$h
+		cat $v/man0/naa_x $p | fixli | condeqn | nroff37 >$h
 	}
 }

@@ -36,6 +36,7 @@ ed 	 text editor
 exit 	 end command sequence
 fc 	 compile Fortran program
 fed 	 form-letter editor
+find 	 find file with given name
 form 	 generate form letter
 goto 	 command transfer
 if 	 conditional command

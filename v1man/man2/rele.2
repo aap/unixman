@@ -1,0 +1,32 @@
+.pa 1
+.he '11/3/71''SYS RELE (II)'
+.ti 0
+NAME		rele  --  release processor
+.sp
+.ti 0
+SYNOPSIS	sys	rele  / rele = 0;  not in assembler
+.sp
+.ti 0
+DESCRIPTION	This call
+causes the process to be swapped out immediately if
+another process wants to run.
+Its main reason for being is internal
+to the system, namely to implement timer-runout swaps.
+However, it can be used beneficially by programs
+which wish to loop for some reason without
+consuming more processor time than necessary.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

@@ -1,0 +1,44 @@
+.pa 1
+.he '11/3/71''PASSWD (V)'
+.ti 0
+NAME		passwd  --  password file
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	passwd______
+contains for each user the
+following information:
+
+   name (login name)
+   password
+   numerical user ID
+   default working directory
+   program to use as Shell
+
+This is an ASCII file.  Each field within each user's entry
+is separated from the next by a colon.
+Each user is separated from the next by a new-line.
+If the password field is null, no password is demanded;
+if the Shell field is null, the Shell itself
+is used.
+
+This file, naturally, is inaccessible to anyone but the super-user.
+
+This file resides in directory /etc.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	/etc/init
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		super-user

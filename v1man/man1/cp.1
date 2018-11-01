@@ -1,0 +1,34 @@
+.pa 1
+.he '11/3/71''CP (I)'
+.ti 0
+NAME		cp -- copy
+.sp
+.ti 0
+SYNOPSIS	cp__ file918918 file918928 file928918 file928928 ...
+.sp
+.ti 0
+DESCRIPTION	Files are taken in pairs;
+the first file is opened for reading,
+the second created mode 17.
+Then the first is copied into the second.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	cat, pr
+.sp
+.ti 0
+DIAGNOSTICS	Error returns are
+checked at every system call, and
+appropriate diagnostics are produced.
+.sp
+.ti 0
+BUGS		The second file should be created
+in the mode of the first.
+.sp
+A directory convention as used in mv__
+should be adopted for cp__.
+.sp
+.ti 0
+OWNER		ken, dmr

@@ -1,0 +1,33 @@
+.pa 1
+.he '11/3/71''RKD (I)'
+.ti 0
+NAME		rkd  --  dump RK disk to tape
+.sp
+.ti 0
+SYNOPSIS	/etc/rkd________
+.sp
+.ti 0
+DESCRIPTION	rkd___
+copies an RK03/RK05 disk pack onto nine DECtapes.
+.sp
+Physical I/O is done and interrupts are disabled,
+so time-sharing is suspended during operation of the command.
+.sp
+The sequence of tape drives is: 0, 1, 0, 1, ....
+.sp
+rkd___ exits if 0 appears in the console switches.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	rkl
+.sp
+.ti 0
+DIAGNOSTICS	none; errors are retried forever
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken

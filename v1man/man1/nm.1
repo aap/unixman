@@ -1,0 +1,35 @@
+.pa 1
+.he '11/3/71''NM (I)'
+.ti 0
+NAME		nm  --  get name list
+.sp
+.ti 0
+SYNOPSIS	nm__ [ name ]
+.sp
+.ti 0
+DESCRIPTION	nm__
+prints the symbol table from the output file of an
+assembler or loader run.
+Only relocatable, global, and undefined symbols--
+not absolute-- are given.
+Each defined symbol is preceded by its value;
+each undefined symbol by blanks.
+Global symbols have their first character underlined.
+The output is sorted alphabetically.
+.sp
+If no file is given, the symbols in a.out_____ are listed.
+.sp
+.ti 0
+FILES		a.out
+.sp
+.ti 0
+SEE ALSO	as, ld
+.sp
+.ti 0
+DIAGNOSTICS	"?"
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		dmr, ken

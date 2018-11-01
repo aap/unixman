@@ -1,0 +1,58 @@
+.pa 1
+.he '11/3/71''/DEV/PPT (IV)'
+.ti 0
+NAME		ppt  --  punched paper tape
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	ppt___
+refers to the paper tape reader or punch,
+depending on whether it is read or written.
+
+When ppt___ is opened for writing, a 100-character leader
+is punched.
+Thereafter each byte written is punched on
+the tape.  No editing of the characters
+is performed.
+When the file is closed, a 100-character trailer is punched.
+
+When ppt___ is opened for reading, the process
+waits until tape is placed in the reader and the reader
+is on-line.
+Then requests to read cause the characters read
+to be passed back to the program, again without
+any editing.
+This means that several null characters
+will usually appear at the beginning of the file.
+Likewise several nulls are likely to appear at the end.
+End-of-file is generated when the tape runs out.
+
+Seek calls for this file are meaningless
+and are effectively ignored
+(however, the read/write pointers are maintained
+and an arbitrary sequence of reads or writes intermixed
+with seeks will give apparently correct results
+when checked with tell____).
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	lbppt, dbppt, bppt format
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		Previously,
+there were separate special files for ASCII tape
+(which caused null characters to be suppressed)
+and binary tape
+(which used a blocked format with checksums).
+These notions were conceptually quite attractive,
+but they were discarded to save space in the system.
+.sp
+.ti 0
+OWNER		ken, dmr

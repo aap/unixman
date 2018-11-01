@@ -1,0 +1,98 @@
+.pa 1
+.he '11/3/71''/ETC/INIT (VII)'
+.ti 0
+NAME		init  --  process initialization
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	init____
+is invoked inside UNIX as the last step in the boot procedure.
+It first carries out several housekeeping duties:
+it must change the modes of the tape files and
+the RK disk file to 17,
+because if the system crashed while a tap___ or rk__
+command was in progress,
+these files would be inaccessible;
+it also truncates the file /tmp/utmp,
+which contains a list of UNIX users,
+again as a recovery measure in case of a crash.
+Directory usr___ is assigned via
+.ul
+sys mount
+as resident on the RK disk.
+
+init____ then forks several times so as to create one process
+for each typewriter channel on which a user may log in.
+Each process changes the mode of its typewriter to 15
+(read/write owner, write-only non-owner;
+this guards against random users stealing input)
+and the owner to the super-user.
+Then the typewriter is opened for reading and writing.
+Since these opens are for the first files open in the process,
+they receive the file descriptors 0 and 1,
+the standard input and output file descriptors.
+It is likely that no one is dialled in when
+the read open takes place;
+therefore the process waits until someone calls.
+At this point, init____ types its "login:"
+message and reads the response,
+which is looked up in the password file.
+The password file contains each user's name, password,
+numerical user ID, default working directory, and default shell.
+If the lookup is successful and the user can supply his password,
+the owner of the typewriter is changed to the appropriate user ID.
+An entry is made in /tmp/utmp for this user to maintain an
+up-to-date list of users.
+Then the user ID of the process is changed appropriately,
+the current directory is set,
+and the appropriate program to be used as the Shell is executed.
+
+At some point the process will terminate,
+either because the login was successful
+but the user has now logged out,
+or because the login was unseccessful.
+The parent routine of all the children of init____ has
+meanwhile been waiting for such an event.
+When return takes place from the
+.ul
+sys wait,
+init____ simply forks again,
+and the child process again awaits a user.
+
+There is a fine point involved in reading the login message.
+UNIX is presently set up to handle automatically two types
+of terminals:
+150 baud, full duplex terminals with the line-feed function
+(typically, the Model 37 Teletype terminal),
+and 300 baud, full duplex terminals with
+only the line-space function (typically the GE TermiNet terminal).
+The latter type identifies itself by sending a line-break
+(long space) signal at login time.
+Therefore, if a null character is received during reading
+of the login line, the typewriter mode is set to accommodate this
+terminal and the "login:" message is typed again
+(because it was garbled the first time).
+
+Init____, upon first entry, checks the switches for 73700.
+If this combination is set, init____ will open
+/dev/tty as standard input and output and directly execute /bin/sh.
+In this manner, UNIX can be brought up with a minimum of
+hardware and software.
+.sp
+.ti 0
+FILES		/dev/utmp, /dev/tty0 ... /dev/ttyn
+.sp
+.ti 0
+SEE ALSO	sh
+.sp
+.ti 0
+DIAGNOSTICS	"No directory", "No shell".
+There are also some halts if basic I/O files cannot be found in /dev.
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+BUGS		ken, dmr

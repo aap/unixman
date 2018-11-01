@@ -1,0 +1,75 @@
+.pa 1
+.he '11/3/71''SYS STTY (II)'
+.tr |
+.ti 0
+NAME		stty  --  set mode of typewriter
+.sp
+.ti 0
+SYNOPSIS	(file descriptor in r0)
+.br
+sys	stty; arg  / stty = 31.; not in assembler
+.br
+.li
+...
+.ti -6
+arg:  dcrsr; dcpsr; mode
+.sp
+.ti 0
+DESCRIPTION	stty____
+sets mode bits for a typewriter whose file descriptor
+is passed in r0.
+First, the system delays until the typewriter is quiescent.
+Then, the argument dcrsr_____ is placed into the typewriter's
+receiver control and status register,
+and dcpsr_____ is placed in the printer control and status register.
+The DC-11 manual must be consulted for the format of these
+words.
+For the purpose of this call, the most important ro^le of
+these arguments is to adjust to the speed of the typewriter.
+.sp
+The mode____ argument contains several bits which determine the
+system's treatment of the typewriter:
+.sp
+.in +3
+.nf
+200  even (M37 tty) parity allowed
+100  odd (non-M37 tty) allowed
+040  raw mode: wake up on all characters
+020  map CR into LF; echo LF or CR as CR-LF
+010  don't echo (half duplex)
+004  map upper case to lower on input (M33 TTY)
+.fi
+.in -3
+.sp
+.fi
+Characters with the wrong parity, as determined by bits 200 and
+100, are ignored.
+.sp
+In raw mode, every character is passed back immediately
+to the program.  No erase or kill processing is done;
+the end-of-file character (EOT), the interrupt character
+(DELETE) and the quit character (FS) are not treated specially.
+.sp
+Mode 020 causes input carriage returns to be turned into
+new-lines;
+input of either CR or LF causes CR-LF both to
+be echoed
+(used for GE TermiNet 300's).
+.ti0
+.sp
+FILES		--
+.sp
+.ti 0
+SEE ALSO	gtty
+.sp
+.ti 0
+DIAGNOSTICS	The error bit
+(c-bit) is set if the file descriptor does not refer to a typewriter.
+.sp
+.ti 0
+BUGS		This call should be used with care.
+It is all too easy to turn off your typewriter.
+.sp
+.ti 0
+OWNER		ken, dmr
+.tr ||

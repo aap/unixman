@@ -1,0 +1,120 @@
+.pa 1
+.he '11/3/71''CHESS (VI)'
+.ti 0
+NAME		chess -- the game of chess
+.sp
+.ti 0
+SYNOPSIS	/usr/games/chess
+.sp
+.ti 0
+DESCRIPTION	Chess
+is an attempt at computer chess.
+The program 'speaks' in algebraic chess notation.
+The initial board configuration in this notation is as follows:
+
+   8 R N B Q K B N R
+   7 P P P P P P P P
+   6 - * - * - * - *
+   5 * - * - * - * -
+   4 - * - * - * - *
+   3 * - * - * - * -
+   2 p p p p p p p p
+   1 r n b q k b n r
+     a b c d e f g h
+
+A move is specified by the 'from' co-ordinate followed
+by the 'to' co-ordinate.
+Thus the white P-K4 move would be 'e2e4'.
+The black P-K4 would be 'e7e5'.
+
+The following commands are recognized by the chess program:
+
+.in +3
+.ti -3
+move
+.br
+Make the move if legal.
+The program does not keep track of who is to play.
+The move is made for what ever side is specified.
+
+.ti -3
+move x_
+.br
+Make the move regardless of legality.
+This is a good way to either set up a desired situation or to cheat.
+The initial move 'e2e8x' is a winner.
+
+.ti -3
+mw__
+.br
+The program will compute and make a move for the white pieces.
+
+.ti -3
+m_
+.br
+The program will compute and make a move for the black pieces.
+
+.ti -3
+l_ab
+.br
+Set the level parameters to a and b,
+where a and b are numbers between 0 and 9.
+The initial settings are 2 and 8.
+The first parameter increases computation time rapidly while
+the second parameter only increases computation exponentially.
+Currently move times run from 20 seconds to 10 minutes.
+It was hoped that these numbers would be usefully related
+to the program's competence.
+
+.ti -3
+p_
+.br
+The board is printed.
+
+.ti -3
+u_
+.br
+The last move is un-made.
+This is another good way to cheat.
+
+.ti -3
+t_
+.br
+All the moves to date are printed.
+
+.ti -3
+s_
+.br
+The current game situation is saved on the file c.tmp.
+
+.ti -3
+r_
+.br
+The game situation on the file c.tmp is restored.
+
+.ti -3
+!command
+.br
+The unix command is executed by the mini-shell.
+.in -3
+
+An interrupt (DEL) will pull the program out of its computation.
+If it is trying to make a move, the best move to date is made.
+.sp
+.ti 0
+FILES		c.tmp
+.sp
+.ti 0
+SEE ALSO	msh
+.sp
+.ti 0
+DIAGNOSTICS	? if an illegal move is attempted,
+or if an unknown command is typed.
+.sp
+.ti 0
+BUGS		The current version does not recognize castling,
+promotion and en passant.
+A new version is in the mill.
+.sp
+.ti 0
+OWNER		ken

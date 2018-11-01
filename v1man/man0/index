@@ -1,0 +1,594 @@
+           as2(VII): assembler's pass   2
+                 kbd(VII): map of TTY   37 keyboard
+                     chmod(I): change   access mode of files
+                            sdate(I):   adjust date and time
+                mail(I): send mail to   another user
+                   write(I): write to   another user
+                                        a.out(V): assembler and loader output
+                               ar(I):   archive (combine) files
+                          archive(V):   archive file
+                                        archive(V): archive file
+                           glob(VII):   argument expander
+                                        ar(I): archive (combine) files
+                                        as2(VII): assembler's pass 2
+                    dpt(VI): read DEC   ASCII paper tapes
+                      bcd(I): convert   ASCII to BCD
+                   atof(III): convert   ASCII to floating
+                   atoi(III): convert   ASCII to integer
+                   ascii(VII): map of   ASCII
+          ctime(III): convert time to   ASCII
+       ftoa(III): convert floating to   ASCII
+        itoa(III): convert integer to   ASCII
+                                        ascii(VII): map of ASCII
+                                        as(I): assembler
+                            a.out(V):   assembler and loader output
+                               as(I):   assembler
+                           ba(VII): B   assembler
+                            as2(VII):   assembler's pass 2
+                  liba(VII): standard   assembly-language library
+                                        atof(III): convert ASCII to floating
+                                        atoi(III): convert ASCII to integer
+                             ba(VII):   B assembler
+                             bc(VII):   B compiler
+                          bilib(VII):   B interpreter library
+                  libb(VII): standard   B library
+                        b(I): compile   B program
+                      brt1,brt2(VII):   B start and finish
+                  log(III): logarithm   base e
+                                        bas(I): BASIC dialect
+                              bas(I):   BASIC dialect
+              basic(VI): DEC supplied   BASIC
+                                        basic(VI): DEC supplied BASIC
+                                        ba(VII): B assembler
+             bcd(I): convert ASCII to   BCD
+                                        bcd(I): convert ASCII to BCD
+                                        bc(VII): B compiler
+                               su(I):   become super-user
+                                        b(I): compile B program
+                                        bilib(VII): B interpreter library
+                             bppt(V):   binary paper tape format
+                      dbppt(I): write   binary paper tape
+                       lbppt(I): read   binary paper tape
+                    dli(VI): load DEC   binary paper tapes
+ strip(I): remove symbols, relocation   bits
+                                        bj(VI): the game of blackjack
+                  bj(VI): the game of   blackjack
+                          bproc(VII):   boot procedure
+                                        boot(I): reboot system
+                                        bppt(V): binary paper tape format
+                                        bproc(VII): boot procedure
+               break(II): set program   break
+                                        break(II): set program break
+                                        brt1,brt2(VII): B start and finish
+                          dc(I): desk   calculator
+                       cal(VI): print   calender
+                                        cal(VI): print calender
+                            cemt(II):   catch EMT traps
+                          ilgins(II):   catch illegal instruction trap
+                            intr(II):   catch or inhibit interrupts
+                            quit(II):   catch or inhibit quits
+                                        cat(I): concatenate (or print) files
+                                        cemt(II): catch EMT traps
+                            chmod(I):   change access mode of files
+                           chmod(II):   change mode of file
+                           chown(II):   change owner of file
+                            chown(I):   change owner of files
+                            chdir(I):   change working directory
+                           chdir(II):   change working directory
+                     putc(III): write   character or word
+                        get(III): get   character
+                                        chdir(I): change working directory
+                                        chdir(II): change working directory
+                            check(I):   check consistency of file system
+                                        check(I): check consistency of file system
+               chess(VI): the game of   chess
+                                        chess(VI): the game of chess
+                                        chmod(I): change access mode of files
+                                        chmod(II): change mode of file
+                                        chown(I): change owner of files
+                                        chown(II): change owner of file
+                           close(II):   close open file
+                                        close(II): close open file
+                                        cmp(I): compare file contents
+                       ar(I): archive   (combine) files
+                               sh(I):   command interpreter
+                              cmp(I):   compare file contents
+                                b(I):   compile B program
+                              for(I):   compile Fortran program
+            f1,f2,f3,f4(VII): Fortran   compiler passes
+                           bc(VII): B   compiler
+                              cat(I):   concatenate (or print) files
+                      check(I): check   consistency of file system
+                             tty(IV):   console typewriter
+                          ls(I): list   contents of directory
+                 cmp(I): compare file   contents
+                              bcd(I):   convert ASCII to BCD
+                           atof(III):   convert ASCII to floating
+                           atoi(III):   convert ASCII to integer
+                           ftoa(III):   convert floating to ASCII
+                           itoa(III):   convert integer to ASCII
+                          ctime(III):   convert time to ASCII
+                               cp(I):   copy file
+                             core(V):   core image file
+                             mem(IV):   core memory as file
+                                        core(V): core image file
+                      sin(III): sine,   cosine
+            wc(I): get (English) word   count
+                                        cp(I): copy file
+                            mkdir(I):   create directory
+                           mkdir(II):   create directory
+                           creat(II):   create file
+                            fork(II):   create new process
+                                        creat(II): create file
+                                        ctime(III): convert time to ASCII
+                                        das(VI): disassembler
+                         date(I): get   date and time of day
+                     sdate(I): adjust   date and time
+                      smdate(II): set   date modified of file
+                                        date(I): get date and time of day
+        date(I): get date and time of   day
+                                        db(I): symbolic debugger
+                                        dbppt(I): write binary paper tape
+                                        dc(I): desk calculator
+                      db(I): symbolic   debugger
+                        dpt(VI): read   DEC ASCII paper tapes
+                        dli(VI): load   DEC binary paper tapes
+                           basic(VI):   DEC supplied BASIC
+                   tap0,...,tap7(IV):   DECtape file
+                       dtf(I): format   DECtape
+                       rew(I): rewind   DECtape
+                   tap(I): manipulate   DECtape
+                     rmdir(I): remove   (delete) directory
+                        rm(I): remove   (delete) file
+                              dsw(I):   delete files interactively
+                   unlink(II): remove   (delete) file
+                   mesg(I): permit or   deny messages
+                switch(III): transfer   depending on value
+                               dc(I):   desk calculator
+                                        df(I): find free disk space
+                        bas(I): BASIC   dialect
+                        directory(V):   directory format
+             chdir(I): change working   directory
+            chdir(II): change working   directory
+              ls(I): list contents of   directory
+                     mkdir(I): create   directory
+                    mkdir(II): create   directory
+            rmdir(I): remove (delete)   directory
+                                        directory(V): directory format
+                             das(VI):   disassembler
+                          rf0(IV): RF   disk file
+                          rk0(IV): RK   disk file
+                         rkl(I): load   disk from tape
+                     df(I): find free   disk space
+                         rkd(I): dump   disk to tape
+                          du(I): find   disk usage
+                    rkf(I): format RK   disk
+                          umount(II):   dismount file system
+                           umount(I):   dismount removable file system
+                                        dli(VI): load DEC binary paper tapes
+                                        dpt(VI): read DEC ASCII paper tapes
+                                        dsw(I): delete files interactively
+                                        dtf(I): format DECtape
+                                        du(I): find disk usage
+                              rkd(I):   dump disk to tape
+                         od(I): octal   dump of file
+                                        ed(I): text editor
+                          ld(I): link   editor (loader)
+                          ed(I): text   editor
+             log(III): logarithm base   e
+                      cemt(II): catch   EMT traps
+                           wc(I): get   (English) word count
+                                        exec(II): execute program file
+                            exec(II):   execute program file
+                  exit(II): terminate   execution
+                                        exit(II): terminate execution
+                  glob(VII): argument   expander
+                                        exp(III): exponential function
+                            exp(III):   exponential function
+                                        f1,f2,f3,f4(VII): Fortran compiler passes
+                      cmp(I): compare   file contents
+                       type(I): print   file page-by-page
+                         stat(I): get   file status
+                        stat(II): get   file status
+                      file system(V):   file system format
+       check(I): check consistency of   file system
+                  mkfs(I): initialize   file system
+            mount(I): mount removable   file system
+                     mount(II): mount   file system
+        umount(I): dismount removable   file system
+                 umount(II): dismount   file system
+                                        file system(V): file system format
+                        find(I): find   file with given name
+                         pr(I): print   file with headings
+                  archive(V): archive   file
+            chmod(II): change mode of   file
+           chown(II): change owner of   file
+                close(II): close open   file
+                  core(V): core image   file
+                          cp(I): copy   file
+                    creat(II): create   file
+            exec(II): execute program   file
+            fstat(II): status of open   file
+                    link(II): link to   file
+                       ln(I): link to   file
+              mem(IV): core memory as   file
+                mv(I): move or rename   file
+                 od(I): octal dump of   file
+                       open(II): open   file
+                  passwd(V): password   file
+                       read(II): read   file
+                     rf0(IV): RF disk   file
+                     rk0(IV): RK disk   file
+               rm(I): remove (delete)   file
+                       dsw(I): delete   files interactively
+             ar(I): archive (combine)   files
+       cat(I): concatenate (or print)   files
+      chmod(I): change access mode of   files
+            chown(I): change owner of   files
+     smdate(II): set date modified of   file
+                     sort(VI): sort a   file
+                          sum(I): sum   file
+           tap0,...,tap7(IV): DECtape   file
+          unlink(II): remove (delete)   file
+                     write(II): write   file
+                               du(I):   find disk usage
+                             find(I):   find file with given name
+                               df(I):   find free disk space
+                              tty(I):   find name of terminal
+                            tell(II):   find read or write pointer
+                               un(I):   find undefined symbols
+                                        find(I): find file with given name
+          brt1,brt2(VII): B start and   finish
+                   ftoa(III): convert   floating to ASCII
+          atof(III): convert ASCII to   floating
+                         fptrap(III):   floating-point simulator
+                                        for(I): compile Fortran program
+                                        fork(II): create new process
+                    form(I): generate   form letter
+                              dtf(I):   format DECtape
+                              rkf(I):   format RK disk
+                             roff(I):   format text for printing
+           bppt(V): binary paper tape   format
+              directory(V): directory   format
+          file system(V): file system   format
+                                        form(I): generate form letter
+                    f1,f2,f3,f4(VII):   Fortran compiler passes
+                  libf(VII): standard   Fortran library
+                      for(I): compile   Fortran program
+                                        fptrap(III): floating-point simulator
+                          df(I): find   free disk space
+                    rkl(I): load disk   from tape
+                                        fstat(II): status of open file
+                                        ftoa(III): convert floating to ASCII
+                exp(III): exponential   function
+                          bj(VI): the   game of blackjack
+                       chess(VI): the   game of chess
+                         moo(VI): the   game of MOO
+                         ttt(VI): the   game of tic-tac-toe
+                             form(I):   generate form letter
+                            get(III):   get character
+                             date(I):   get date and time of day
+                               wc(I):   get (English) word count
+                             stat(I):   get file status
+                            stat(II):   get file status
+                               tm(I):   get time information
+                            time(II):   get time of year
+                            gtty(II):   get typewriter mode
+                          getuid(II):   get user ID
+                                        get(III): get character
+                                        getuid(II): get user ID
+              find(I): find file with   given name
+                                        glob(VII): argument expander
+                                        gtty(II): get typewriter mode
+                              hup(I):   hang up typewriter
+               pr(I): print file with   headings
+                                        hup(I): hang up typewriter
+                 getuid(II): get user   ID
+                 setuid(II): set user   ID
+           uids(V): map names to user   ID's
+                                        ilgins(II): catch illegal instruction trap
+                    ilgins(II): catch   illegal instruction trap
+                        core(V): core   image file
+                      tm(I): get time   information
+              utmp(V): logged-in user   information
+                   intr(II): catch or   inhibit interrupts
+                   quit(II): catch or   inhibit quits
+                             mkfs(I):   initialize file system
+                           init(VII):   initializer process
+                                        init(VII): initializer process
+            ilgins(II): catch illegal   instruction trap
+                   itoa(III): convert   integer to ASCII
+          atoi(III): convert ASCII to   integer
+                 dsw(I): delete files   interactively
+                        bilib(VII): B   interpreter library
+                       sh(I): command   interpreter
+           intr(II): catch or inhibit   interrupts
+                                        intr(II): catch or inhibit interrupts
+                                        itoa(III): convert integer to ASCII
+                                        kbd(VII): map of TTY 37 keyboard
+              kbd(VII): map of TTY 37   keyboard
+                                        lbppt(I): read binary paper tape
+                                        ld(I): link editor (loader)
+               form(I): generate form   letter
+                                        liba(VII): standard assembly-language library
+                                        libb(VII): standard B library
+                                        libf(VII): standard Fortran library
+            bilib(VII): B interpreter   library
+liba(VII): standard assembly-language   library
+                libb(VII): standard B   library
+          libf(VII): standard Fortran   library
+                               ld(I):   link editor (loader)
+                            link(II):   link to file
+                               ln(I):   link to file
+                                        link(II): link to file
+                               ls(I):   list contents of directory
+                                        ln(I): link to file
+                             dli(VI):   load DEC binary paper tapes
+                              rkl(I):   load disk from tape
+              a.out(V): assembler and   loader output
+                   ld(I): link editor   (loader)
+                            log(III):   logarithm base e
+                             utmp(V):   logged-in user information
+                                        log(III): logarithm base e
+                                        ls(I): list contents of directory
+                        mail(I): send   mail to another user
+                                        mail(I): send mail to another user
+                              tap(I):   manipulate DECtape
+                             uids(V):   map names to user ID's
+                          ascii(VII):   map of ASCII
+                            kbd(VII):   map of TTY 37 keyboard
+                                        mem(IV): core memory as file
+                        mem(IV): core   memory as file
+                                        mesg(I): permit or deny messages
+                                        mesg(III): print string on typewriter
+              mesg(I): permit or deny   messages
+                                        mkdir(I): create directory
+                                        mkdir(II): create directory
+                                        mkfs(I): initialize file system
+                    chmod(II): change   mode of file
+              chmod(I): change access   mode of files
+                        stty(II): set   mode of typewriter
+             gtty(II): get typewriter   mode
+                 smdate(II): set date   modified of file
+                 moo(VI): the game of   MOO
+                                        moo(VI): the game of MOO
+                           mount(II):   mount file system
+                            mount(I):   mount removable file system
+                                        mount(I): mount removable file system
+                                        mount(II): mount file system
+                               mv(I):   move or rename file
+                            seek(II):   move read or write pointer
+                                        mv(I): move or rename file
+                         tty(I): find   name of terminal
+        find(I): find file with given   name
+                         nm(I): print   namelist
+                         uids(V): map   names to user ID's
+                     fork(II): create   new process
+                                        nm(I): print namelist
+                               od(I):   octal dump of file
+                                        od(I): octal dump of file
+                     close(II): close   open file
+                 fstat(II): status of   open file
+                            open(II):   open file
+                                        open(II): open file
+                  cat(I): concatenate   (or print) files
+       a.out(V): assembler and loader   output
+                    chown(II): change   owner of file
+                     chown(I): change   owner of files
+                  type(I): print file   page-by-page
+                      bppt(V): binary   paper tape format
+               dbppt(I): write binary   paper tape
+                lbppt(I): read binary   paper tape
+                     ppt(IV): punched   paper tape
+             dli(VI): load DEC binary   paper tapes
+              dpt(VI): read DEC ASCII   paper tapes
+                as2(VII): assembler's   pass 2
+   f1,f2,f3,f4(VII): Fortran compiler   passes
+                                        passwd(V): password file
+                           passwd(V):   password file
+                             mesg(I):   permit or deny messages
+         seek(II): move read or write   pointer
+         tell(II): find read or write   pointer
+                                        ppt(IV): punched paper tape
+                                        pr(I): print file with headings
+                             cal(VI):   print calender
+                             type(I):   print file page-by-page
+                               pr(I):   print file with headings
+              cat(I): concatenate (or   print) files
+                               nm(I):   print namelist
+                           mesg(III):   print string on typewriter
+                          ptime(III):   print time
+             roff(I): format text for   printing
+                     bproc(VII): boot   procedure
+                 fork(II): create new   process
+               init(VII): initializer   process
+                    rele(II): release   processor
+                   wait(II): wait for   process
+                       break(II): set   program break
+                    exec(II): execute   program file
+                      b(I): compile B   program
+              for(I): compile Fortran   program
+                                        ptime(III): print time
+                             ppt(IV):   punched paper tape
+                                        putc(III): write character or word
+                                        quit(II): catch or inhibit quits
+           quit(II): catch or inhibit   quits
+                            lbppt(I):   read binary paper tape
+                             dpt(VI):   read DEC ASCII paper tapes
+                            read(II):   read file
+                       seek(II): move   read or write pointer
+                       tell(II): find   read or write pointer
+                                        read(II): read file
+                             boot(I):   reboot system
+                            rele(II):   release processor
+                                        rele(II): release processor
+            strip(I): remove symbols,   relocation bits
+                   tty0,...,tty5(IV):   remote typewriter
+                      mount(I): mount   removable file system
+                  umount(I): dismount   removable file system
+                            rmdir(I):   remove (delete) directory
+                               rm(I):   remove (delete) file
+                          unlink(II):   remove (delete) file
+                            strip(I):   remove symbols, relocation bits
+                       mv(I): move or   rename file
+                                        rew(I): rewind DECtape
+                              rew(I):   rewind DECtape
+                             rf0(IV):   RF disk file
+                                        rf0(IV): RF disk file
+                             rk0(IV):   RK disk file
+                       rkf(I): format   RK disk
+                                        rk0(IV): RK disk file
+                                        rkd(I): dump disk to tape
+                                        rkf(I): format RK disk
+                                        rkl(I): load disk from tape
+                                        rmdir(I): remove (delete) directory
+                                        rm(I): remove (delete) file
+                                        roff(I): format text for printing
+                                        sdate(I): adjust date and time
+                                        seek(II): move read or write pointer
+                             mail(I):   send mail to another user
+                          smdate(II):   set date modified of file
+                            stty(II):   set mode of typewriter
+                           break(II):   set program break
+                           stime(II):   set system time
+                          setuid(II):   set user ID
+                                        setuid(II): set user ID
+                                        sh(I): command interpreter
+          fptrap(III): floating-point   simulator
+                            sin(III):   sine, cosine
+                                        sin(III): sine, cosine
+                                        smdate(II): set date modified of file
+                            sort(VI):   sort a file
+                                        sort(VI): sort a file
+                df(I): find free disk   space
+                           liba(VII):   standard assembly-language library
+                           libb(VII):   standard B library
+                           libf(VII):   standard Fortran library
+                    brt1,brt2(VII): B   start and finish
+                                        stat(I): get file status
+                                        stat(II): get file status
+                           fstat(II):   status of open file
+                    stat(I): get file   status
+                   stat(II): get file   status
+                                        stime(II): set system time
+                     mesg(III): print   string on typewriter
+                                        strip(I): remove symbols, relocation bits
+                                        stty(II): set mode of typewriter
+                                        su(I): become super-user
+                              sum(I):   sum file
+                                        sum(I): sum file
+                        su(I): become   super-user
+                       basic(VI): DEC   supplied BASIC
+                                        switch(III): transfer depending on value
+                               db(I):   symbolic debugger
+                     strip(I): remove   symbols, relocation bits
+                un(I): find undefined   symbols
+                 file system(V): file   system format
+                       stime(II): set   system time
+                      boot(I): reboot   system
+  check(I): check consistency of file   system
+             mkfs(I): initialize file   system
+       mount(I): mount removable file   system
+                mount(II): mount file   system
+   umount(I): dismount removable file   system
+            umount(II): dismount file   system
+                                 file   system(V): file system format
+                who(I): who is on the   system
+                                        tap0,...,tap7(IV): DECtape file
+                bppt(V): binary paper   tape format
+         dbppt(I): write binary paper   tape
+          lbppt(I): read binary paper   tape
+               ppt(IV): punched paper   tape
+                 rkd(I): dump disk to   tape
+               rkl(I): load disk from   tape
+       dli(VI): load DEC binary paper   tapes
+        dpt(VI): read DEC ASCII paper   tapes
+                                        tap(I): manipulate DECtape
+                                        tell(II): find read or write pointer
+                 tty(I): find name of   terminal
+                            exit(II):   terminate execution
+                               ed(I):   text editor
+                      roff(I): format   text for printing
+                 ttt(VI): the game of   tic-tac-toe
+                           tm(I): get   time information
+                date(I): get date and   time of day
+                        time(II): get   time of year
+                  ctime(III): convert   time to ASCII
+                                        time(II): get time of year
+                    ptime(III): print   time
+            sdate(I): adjust date and   time
+                stime(II): set system   time
+                                        tm(I): get time information
+                         switch(III):   transfer depending on value
+ilgins(II): catch illegal instruction   trap
+                  cemt(II): catch EMT   traps
+                                        ttt(VI): the game of tic-tac-toe
+                     kbd(VII): map of   TTY 37 keyboard
+                                        tty0,...,tty5(IV): remote typewriter
+                                        tty(I): find name of terminal
+                                        tty(IV): console typewriter
+                                        type(I): print file page-by-page
+                        gtty(II): get   typewriter mode
+                      hup(I): hang up   typewriter
+           mesg(III): print string on   typewriter
+                stty(II): set mode of   typewriter
+            tty0,...,tty5(IV): remote   typewriter
+                     tty(IV): console   typewriter
+                                        uids(V): map names to user ID's
+                                        umount(I): dismount removable file system
+                                        umount(II): dismount file system
+                          un(I): find   undefined symbols
+                                        un(I): find undefined symbols
+                                        unlink(II): remove (delete) file
+                     du(I): find disk   usage
+                      getuid(II): get   user ID
+                      setuid(II): set   user ID
+                uids(V): map names to   user ID's
+                   utmp(V): logged-in   user information
+        mail(I): send mail to another   user
+           write(I): write to another   user
+                                        utmp(V): logged-in user information
+   switch(III): transfer depending on   value
+                            wait(II):   wait for process
+                                        wait(II): wait for process
+                                        wc(I): get (English) word count
+                              who(I):   who is on the system
+                                        who(I): who is on the system
+                   find(I): find file   with given name
+                    pr(I): print file   with headings
+                 wc(I): get (English)   word count
+        putc(III): write character or   word
+                     chdir(I): change   working directory
+                    chdir(II): change   working directory
+                            dbppt(I):   write binary paper tape
+                           putc(III):   write character or word
+                           write(II):   write file
+               seek(II): move read or   write pointer
+               tell(II): find read or   write pointer
+                            write(I):   write to another user
+                                        write(I): write to another user
+                                        write(II): write file
+                time(II): get time of   year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

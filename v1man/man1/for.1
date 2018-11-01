@@ -1,0 +1,56 @@
+.pa 1
+.he '11/3/71''FOR (I)'
+.ti 0
+NAME		for -- fortran
+.sp
+.ti 0
+SYNOPSIS	for___ file
+.sp
+.ti 0
+DESCRIPTION	for___
+is a nearly complete fortran compiler.
+file____ is the name of a fortran source program to be compiled.
+The following is a list of differences between
+for___ and ANSI standard fortran:
+.sp
+.in +3
+.ti -3
+1. arbitrary combination of types are allowed
+in expressions. Not all combinations are expected to
+be supported at runtime.
+All of the normal
+conversions involving integer, real and double
+precision are allowed.
+.sp
+.in -3
+.ti 0
+FILES		f.tmp1, 2 3	temporary
+.br
+/etc/f1, 2 3 4	passes
+.br
+/etc/xx		runtime
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	Diagnostics are given by number.
+If the source code is available, it is printed with an
+underline at the current character pointer.
+A listing of error numbers is avilable.
+.sp
+.ti 0
+BUGS		The following is a list of those features
+not yet implemented:
+.sp
+.nf
+functions
+arithmetic statement functions
+data statements
+complex constants
+hollerith constants
+continuation cards
+.fi
+.sp
+.ti 0
+OWNER		dmr, ken

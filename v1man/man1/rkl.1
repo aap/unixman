@@ -1,0 +1,34 @@
+.pa 1
+.he '11/3/71''RKL (I)'
+.ti 0
+NAME		rkl  --  reload RK disk from tape
+.sp
+.ti 0
+SYNOPSIS	/etc/rkl________
+.sp
+.ti 0
+DESCRIPTION	rkl___
+loads an RK03/RK05 disk pack from nine DECtapes.
+.sp
+The program uses physical I/O with interrupts disabled;
+therefore time-sharing is suspended.
+.sp
+Only the super-user may invoke this command.
+.sp
+The sequence of drives is: 0, 1, 0, 1, ....
+rkl___ will cease if 0 appears in the console switches.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	rkd
+.sp
+.ti 0
+DIAGNOSTICS	none; errors are retried forever
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken

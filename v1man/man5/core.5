@@ -1,0 +1,72 @@
+.pa 1
+.he '11/3/71''CORE (V)'
+.ti 0
+NAME		format of core image
+.sp
+.ti 0
+SYNOPSIS	--
+.sp
+.ti 0
+DESCRIPTION	Three conditions cause UNIX
+to write out the core image of an executing program:
+the program generates an unexpected trap
+(by a bus error or illegal instruction);
+the user sends a "quit" signal
+(which has not been turned off by the program);
+a trap is simulated by the floating point simulator.
+The core image is called "core" and is written in the current
+working directory (provided it can be; normal
+access controls apply).
+It is exactly 8192+64 bytes long.
+The first 8192 represent the actual contents of memory
+at the time of the fault;
+the last 64 are the contents of the system's per-user data area
+for this process.
+Only the first word of this area will be described.
+
+When any trap which is not an I/O interrupt occurs,
+all the useful registers are stored on the stack.
+After all the registers have been stored,
+the contents of sp__ are placed in the first cell
+of the user area;
+this cell is called u.sp____.
+Therefore, within the core image proper,
+there is an area which contains the following registers
+in the following order (increasing addresses):
+.sp
+.nf
+(u.sp)->sc
+	mq
+	ac
+	r5
+	r4
+	r3
+	r2
+	r1
+	r0
+	pc (at time of fault)
+	processor status (at time of fault)
+.fi
+.sp
+The last two are stored by the hardware.
+it follows that the contents of sp__ at the time of the faul
+were (u.sp) plus 22(10).
+
+The t-bit (trap bit) in the stored status will be
+on when a quit caused the generation of the core image,
+since this bit is used in the implementation of quits.
+
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	--
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

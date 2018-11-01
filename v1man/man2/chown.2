@@ -1,0 +1,34 @@
+.pa 1
+.he '11/3/71''SYS CHOWN (II)'
+.ti 0
+NAME		chown  --  change owner of file
+.sp
+.ti 0
+SYNOPSIS	sys	chown; name; owner	/ chown = 16.
+.sp
+.ti 0
+DESCRIPTION	The file
+whose name is given by the null-terminated string pointed
+to by name____ has its owner changed to owner_____.
+Only the present owner of a file (or the super-user) may
+donate the file to another user.  Also, one may not
+change the owner of a file with the set-user-ID bit
+on, otherwise one could create Trojan Horses
+able to misuse other's files.
+.sp
+.ti 0
+FILES		--
+.sp
+.ti 0
+SEE ALSO	/etc/uids
+has the mapping between user names and user numbers.
+.sp
+.ti 0
+DIAGNOSTICS	The error bit (c-bit) is set
+on illegal owner changes.
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr

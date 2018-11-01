@@ -1,0 +1,40 @@
+.pa 1
+.he '11/3/71''MKFS (I)'
+.ti 0
+NAME		mkfs  --  make file system
+.sp
+.ti 0
+SYNOPSIS	/etc___/mkfs____ t_
+.br
+/etc___/mkfs____ r_
+.sp
+.ti 0
+DESCRIPTION	mkfs____
+initializes either a DECtape (argument "t")
+or an RK03 disk pack (argument "r")
+so that it contains an empty file system.
+mkfs____ or its equivalent must be used before
+a tape or pack can be mounted as a file system.
+.sp
+In both cases the super-block, i-list, and free list
+are initialized, and a root directory containing
+entries for "." and ".." are created.
+For RK03's the number of available blocks is 4872, for tapes 578.
+.sp
+This program is kept in /etc to avoid inadvertant use and
+consequent destruction of information.
+.sp
+.ti 0
+FILES		/dev/tap0, /dev/rk0
+.sp
+.ti 0
+SEE ALSO	--
+.sp
+.ti 0
+DIAGNOSTICS	"Arg count", "Unknown argument", "Open error".
+.sp
+.ti 0
+BUGS		--
+.sp
+.ti 0
+OWNER		ken, dmr
